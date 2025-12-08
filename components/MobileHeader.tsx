@@ -28,6 +28,8 @@ export default function MobileHeader() {
           <button 
             onClick={toggleMenu}
             className="flex items-center gap-[5px] px-[10px]"
+            aria-label="Відкрити меню навігації"
+            aria-expanded={isMenuOpen}
           >
             <span 
               className="text-white text-[10px] md:text-sm font-extrabold leading-none uppercase"
@@ -50,6 +52,8 @@ export default function MobileHeader() {
                   setIsLanguageOpen(false);
                 }}
                 className="flex items-center gap-[5px]"
+                aria-label={`Вибрати валюту, поточна: ${currency}`}
+                aria-expanded={isCurrencyOpen}
               >
                 <span className="text-white text-lg">{currency}</span>
                 <svg width="9" height="30" viewBox="0 0 9 30" fill="none">
@@ -84,6 +88,8 @@ export default function MobileHeader() {
                   setIsCurrencyOpen(false);
                 }}
                 className="flex items-center gap-[5px]"
+                aria-label={`Вибрати мову, поточна: ${language}`}
+                aria-expanded={isLanguageOpen}
               >
                 <span className="text-white text-lg">{language}</span>
                 <svg width="9" height="30" viewBox="0 0 9 30" fill="none">
@@ -134,6 +140,8 @@ export default function MobileHeader() {
                 setIsLanguageOpen(false);
               }}
               className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="Відкрити меню соціальних мереж"
+              aria-expanded={isSocialOpen}
             >
               <svg width="30" height="30" viewBox="0 0 30 30" fill="white">
                 <circle cx="15" cy="15" r="15" fill="white"/>
@@ -144,8 +152,8 @@ export default function MobileHeader() {
               setIsSocialOpen(!isSocialOpen);
               setIsCurrencyOpen(false);
               setIsLanguageOpen(false);
-            }}>
-              <svg width="9" height="30" viewBox="0 0 9 30" fill="none">
+            }} aria-label="Розгорнути меню соціальних мереж" aria-expanded={isSocialOpen}>
+              <svg width="9" height="30" viewBox="0 0 9 30" fill="none" aria-hidden="true">
                 <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
               </svg>
             </button>
@@ -156,6 +164,7 @@ export default function MobileHeader() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="Telegram - зв'язатись з нами"
                 >
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="15" cy="15" r="15" fill="white"/>
@@ -167,6 +176,7 @@ export default function MobileHeader() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="WhatsApp - зв'язатись з нами"
                 >
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="15" cy="15" r="15" fill="white"/>
@@ -178,6 +188,7 @@ export default function MobileHeader() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="Instagram - наш профіль"
                 >
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="15" cy="15" r="15" fill="white"/>
@@ -199,6 +210,8 @@ export default function MobileHeader() {
                 setIsLanguageOpen(false);
               }}
               className="w-[20px] h-[20px] flex items-center justify-center"
+              aria-label="Відкрити меню соціальних мереж"
+              aria-expanded={isSocialOpen}
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
                 <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.744 6.5l-1.538 7.25c-.115.52-.415.649-.84.404l-2.32-1.71-1.12 1.077c-.124.124-.227.227-.466.227l.166-2.36 4.29-3.877c.186-.166-.04-.258-.29-.092L7.39 11.217l-2.297-.718c-.5-.156-.51-.5.104-.74l8.977-3.46c.415-.15.78.092.644.74z" />
@@ -208,8 +221,8 @@ export default function MobileHeader() {
               setIsSocialOpen(!isSocialOpen);
               setIsCurrencyOpen(false);
               setIsLanguageOpen(false);
-            }}>
-              <svg width="6" height="20" viewBox="0 0 6 20" fill="white">
+            }} aria-label="Розгорнути меню соціальних мереж" aria-expanded={isSocialOpen}>
+              <svg width="6" height="20" viewBox="0 0 6 20" fill="white" aria-hidden="true">
                 <path d="M3 13.3333L0 10.3333L6 10.3333L3 13.3333Z" />
               </svg>
             </button>
@@ -220,8 +233,9 @@ export default function MobileHeader() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[20px] h-[20px] flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="Telegram - зв'язатись з нами"
                 >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white" aria-hidden="true">
                     <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.744 6.5l-1.538 7.25c-.115.52-.415.649-.84.404l-2.32-1.71-1.12 1.077c-.124.124-.227.227-.466.227l.166-2.36 4.29-3.877c.186-.166-.04-.258-.29-.092L7.39 11.217l-2.297-.718c-.5-.156-.51-.5.104-.74l8.977-3.46c.415-.15.78.092.644.74z" />
                   </svg>
                 </a>
@@ -230,8 +244,9 @@ export default function MobileHeader() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[20px] h-[20px] flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="WhatsApp - зв'язатись з нами"
                 >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white" aria-hidden="true">
                     <path d="M13.5 6.5C12.5 5.5 11 5 9.5 5C6.5 5 4 7.5 4 10.5C4 11.5 4.5 12.5 5 13L4 16L7 15C7.5 15.5 8.5 16 9.5 16C12.5 16 15 13.5 15 10.5C15 9 14.5 7.5 13.5 6.5ZM12 12C11.5 12.5 11 12.5 10.5 12.5C10 12.5 9 12 8 11C6.5 10 6 8.5 5.5 8C5.5 7.5 5.5 7 6 6.5C6.5 6 7 6 7.5 6C7.5 6 8 7 8.5 7.5C8.5 8 8.5 8 8 8.5C8 8.5 8 9 8.5 9.5C9 10 10 10.5 10.5 11C11 11.5 11.5 11 11.5 11C12 10.5 12 10 12 10C12.5 10 12.5 10.5 12.5 11C12.5 11.5 12 12 12 12Z" />
                   </svg>
                 </a>
@@ -240,8 +255,9 @@ export default function MobileHeader() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[20px] h-[20px] flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="Instagram - наш профіль"
                 >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white" aria-hidden="true">
                     <rect x="5" y="5" width="10" height="10" rx="2" stroke="white" strokeWidth="1" fill="none"/>
                     <circle cx="10" cy="10" r="2.5" stroke="white" strokeWidth="1" fill="none"/>
                     <circle cx="13.5" cy="6.5" r="0.7" fill="white"/>
@@ -361,6 +377,7 @@ export default function MobileHeader() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-[10px] bg-transparent border-2 border-white rounded-[8px] px-[20px] py-[10px] mb-[30px]"
+              aria-label="Переглянути доступні автомобілі в Telegram"
             >
               <svg width="12" height="14" viewBox="0 0 12 14" fill="white">
                 <path d="M6 0C3.79 0 2 1.79 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.21-1.79-4-4-4zm0 2c1.1 0 2 .9 2 2v2H4V4c0-1.1.9-2 2-2z"/>
@@ -383,6 +400,8 @@ export default function MobileHeader() {
                     setIsLanguageOpen(false);
                   }}
                   className="flex items-center gap-[5px]"
+                  aria-label={`Вибрати валюту, поточна: ${currency}`}
+                  aria-expanded={isCurrencyOpen}
                 >
                   <span className="text-white text-[16px] font-bold">{currency}</span>
                   <svg width="6" height="24" viewBox="0 0 6 24" fill="white">
@@ -417,6 +436,8 @@ export default function MobileHeader() {
                     setIsCurrencyOpen(false);
                   }}
                   className="flex items-center gap-[5px]"
+                  aria-label={`Вибрати мову, поточна: ${language}`}
+                  aria-expanded={isLanguageOpen}
                 >
                   <span className="text-white text-[16px] font-bold leading-tight">{language}</span>
                   <svg width="6" height="24" viewBox="0 0 6 24" fill="white">

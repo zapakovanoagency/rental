@@ -66,6 +66,8 @@ export default function Header() {
                 setIsLanguageOpen(false);
               }}
               className="flex items-center gap-[5px] cursor-pointer hover:text-[#FF4400] transition-colors"
+              aria-label={`Вибрати валюту, поточна: ${currency}`}
+              aria-expanded={isCurrencyOpen}
             >
               <span className="text-white text-sm xl:text-base 2xl:text-lg">{currency}</span>
               <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,6 +102,8 @@ export default function Header() {
                 setIsCurrencyOpen(false);
               }}
               className="flex items-center gap-[5px] cursor-pointer hover:text-[#FF4400] transition-colors"
+              aria-label={`Вибрати мову, поточна: ${language}`}
+              aria-expanded={isLanguageOpen}
             >
               <span className="text-white text-sm xl:text-base 2xl:text-lg">{language}</span>
               <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,6 +138,7 @@ export default function Header() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="Telegram - зв'язатись з нами"
             >
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15" cy="15" r="15" fill="white"/>
@@ -147,6 +152,7 @@ export default function Header() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="WhatsApp - зв'язатись з нами"
             >
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15" cy="15" r="15" fill="white"/>
@@ -160,6 +166,7 @@ export default function Header() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="Instagram - наш профіль"
             >
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15" cy="15" r="15" fill="white"/>
@@ -176,6 +183,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-[10px] h-10 px-5 py-[10px] bg-transparent border border-white rounded-[10px] hover:bg-[#FF4400] hover:border-[#FF4400] transition-colors group"
+            aria-label="Переглянути доступні автомобілі в Telegram"
           >
             <img src="/images/header-btn.svg" alt="" className="transition-all" />
             <span className="text-white text-xs font-bold leading-none tracking-wide transition-colors" style={{ fontFamily: 'Unbounded, sans-serif' }}>
