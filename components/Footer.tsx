@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]">
+    <footer className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[30px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]">
       <div className="flex flex-col gap-[40px] md:gap-[80px]">
 
         {/* Desktop Layout */}
@@ -10,17 +10,17 @@ export default function Footer() {
           {/* Column 1 - Logo and Description */}
           <div className="flex flex-col gap-5">
             <Link href="/" className="group">
-              <img src="/images/logo-footer.svg" alt="RentalLviv" className="w-[273px] h-auto group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
+              <img src="/images/logo-footer.svg" alt="RentalLviv" className="w-[200px] xl:w-[240px] 2xl:w-[273px] h-auto group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
             </Link>
             <div className="flex flex-col gap-[10px]">
               <p 
-                className="text-white text-base leading-[120%]"
+                className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
                 RentaLviv - комфортна оренда авто
               </p>
               <p 
-                className="text-white text-sm leading-[120%]"
+                className="text-white text-[10px] xl:text-xs 2xl:text-sm leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
                 © 2025 RentaLviv.  Всі права захищені
@@ -31,13 +31,13 @@ export default function Footer() {
           {/* Contact info in horizontal layout */}
           <div className="flex gap-[30px] xl:gap-[50px] 2xl:gap-20 items-center">
             {/* Column 2 - Phone, Email and Address */}
-            <div className="flex flex-col gap-[50px]">
+            <div className="flex flex-col gap-[30px] xl:gap-[40px] 2xl:gap-[50px]">
               {/* Phone and Email row */}
               <div className="flex gap-[30px] xl:gap-[50px]">
                 {/* Телефон */}
                 <div className="flex flex-col justify-center gap-[10px]">
                   <span 
-                    className="text-white text-base leading-[120%]"
+                    className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                     style={{ fontFamily: 'var(--font-nunito-sans)' }}
                   >
                     Номер телефону
@@ -50,7 +50,7 @@ export default function Footer() {
                       <path d="M8 5C7.5 5 7 5.5 7 6V9C7 18 13 24 22 24H25C25.5 24 26 23.5 26 23V19C26 18.5 25.5 18 25 18H22C21.5 18 21 18.5 21 19V21C16 20 11 15 10 10H12C12.5 10 13 9.5 13 9V6C13 5.5 12.5 5 12 5H8Z" fill="white" className="group-hover:fill-[#FF4400]"/>
                     </svg>
                     <span 
-                      className="text-white text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
+                      className="text-white text-xs xl:text-sm 2xl:text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
                       style={{ fontFamily: 'var(--font-unbounded)' }}
                     >
                       +380 777 877 087
@@ -61,7 +61,7 @@ export default function Footer() {
                 {/* Email */}
                 <div className="flex flex-col justify-center gap-[10px]">
                   <span 
-                    className="text-white text-base leading-[120%]"
+                    className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                     style={{ fontFamily: 'var(--font-nunito-sans)' }}
                   >
                     Електронна пошта
@@ -75,7 +75,7 @@ export default function Footer() {
                       <path d="M4 9L15 16L26 9" stroke="white" strokeWidth="2"/>
                     </svg>
                     <span 
-                      className="text-white text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
+                      className="text-white text-xs xl:text-sm 2xl:text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
                       style={{ fontFamily: 'var(--font-unbounded)' }}
                     >
                       rentalviv@gmail.com
@@ -85,9 +85,9 @@ export default function Footer() {
               </div>
 
               {/* Address */}
-              <div className="flex flex-col justify-center gap-[10px]">
+              <div className="flex flex-col justify-center gap-[8px] xl:gap-[10px]">
                 <span 
-                  className="text-white text-base leading-[120%]"
+                  className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}
                 >
                   Наша адреса
@@ -98,7 +98,7 @@ export default function Footer() {
                     <circle cx="15" cy="12" r="3" fill="white"/>
                   </svg>
                   <span 
-                    className="text-white text-base font-black leading-[120%]"
+                    className="text-white text-xs xl:text-sm 2xl:text-base font-black leading-[120%]"
                     style={{ fontFamily: 'var(--font-unbounded)' }}
                   >
                     м. Львів вул. Стрийська 200а
@@ -108,11 +108,11 @@ export default function Footer() {
             </div>
 
             {/* Column 3 - Social networks and Messengers */}
-            <div className="flex flex-col justify-center gap-[50px]">
+            <div className="flex flex-col justify-center gap-[30px] xl:gap-[40px] 2xl:gap-[50px]">
               {/* Social networks */}
               <div className="flex flex-col justify-center gap-[10px]">
                 <span 
-                  className="text-white text-base leading-[120%]"
+                  className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}
                 >
                   Слідкуйте за нами в соціальних мережах
@@ -121,9 +121,9 @@ export default function Footer() {
                   <Link 
                     href="https://facebook.com" 
                     target="_blank"
-                    className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
+                    className="w-[24px] xl:w-[27px] 2xl:w-[30px] h-[24px] xl:h-[27px] 2xl:h-[30px] hover:scale-110 transition-transform group"
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                       <rect width="30" height="30" rx="5" fill="white" className="group-hover:fill-[#FF4400]"/>
                       <path d="M17 10H19V7H16C14.3 7 13 8.3 13 10V12H11V15H13V23H16V15H18L19 12H16V10C16 9.4 16.4 10 17 10Z" fill="#070707" className="group-hover:fill-white"/>
                     </svg>
@@ -131,9 +131,9 @@ export default function Footer() {
                   <Link 
                     href="https://instagram.com" 
                     target="_blank"
-                    className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
+                    className="w-[24px] xl:w-[27px] 2xl:w-[30px] h-[24px] xl:h-[27px] 2xl:h-[30px] hover:scale-110 transition-transform group"
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:[&_*]:stroke-[#FF4400] group-hover:[&_*]:fill-[#FF4400]">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full group-hover:[&_*]:stroke-[#FF4400] group-hover:[&_*]:fill-[#FF4400]">
                       <rect x="6" y="6" width="18" height="18" rx="4" stroke="white" strokeWidth="2"/>
                       <circle cx="15" cy="15" r="4" stroke="white" strokeWidth="2"/>
                       <circle cx="21" cy="9" r="1.5" fill="white"/>
@@ -143,9 +143,9 @@ export default function Footer() {
               </div>
 
               {/* Messengers */}
-              <div className="flex flex-col justify-center gap-[10px]">
+              <div className="flex flex-col justify-center gap-[8px] xl:gap-[10px]">
                 <span 
-                  className="text-white text-base leading-[120%]"
+                  className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}
                 >
                   Пишіть нам у мессенджери
@@ -154,9 +154,9 @@ export default function Footer() {
                   <Link 
                     href="https://t.me/yourusername" 
                     target="_blank"
-                    className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
+                    className="w-[24px] xl:w-[27px] 2xl:w-[30px] h-[24px] xl:h-[27px] 2xl:h-[30px] hover:scale-110 transition-transform group"
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                       <circle cx="15" cy="15" r="15" fill="white" className="group-hover:fill-[#FF4400]"/>
                       <path d="M21.5 8.5L7.5 14.5L11 17L18 11L13 18.5L18.5 21.5L21.5 8.5Z" fill="#070707" className="group-hover:fill-white"/>
                     </svg>
@@ -164,9 +164,9 @@ export default function Footer() {
                   <Link 
                     href="https://wa.me/380777877087" 
                     target="_blank"
-                    className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
+                    className="w-[24px] xl:w-[27px] 2xl:w-[30px] h-[24px] xl:h-[27px] 2xl:h-[30px] hover:scale-110 transition-transform group"
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                       <circle cx="15" cy="15" r="15" fill="white" className="group-hover:fill-[#FF4400]"/>
                       <path d="M20 9C18.5 7.5 16.5 7 15 7C11 7 7.5 10.5 7.5 14.5C7.5 16 8 17.5 8.5 18.5L7.5 22.5L11.5 21.5C12.5 22 13.5 22.5 15 22.5C19 22.5 22.5 19 22.5 15C22.5 13 21.5 10.5 20 9ZM18 17.5C17.5 18 17 18 16 18C15.5 18 14 17.5 12.5 16.5C11 15 9.5 13 9.5 12.5C9.5 12 9.5 11 10 10.5C10.5 10 11 10 11.5 10C11.5 10 12 11 12.5 12C12.5 12.5 12.5 12.5 12 13C12 13 12 13.5 12.5 14C13 15 14 15.5 14.5 16C15 16.5 15.5 16 16 16C16.5 15.5 17 15 17 15C17.5 15 18 15.5 18 16C18 16.5 18 17 18 17.5Z" fill="#070707" className="group-hover:fill-white"/>
                     </svg>
