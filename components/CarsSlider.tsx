@@ -1,0 +1,162 @@
+'use client';
+
+import { useState } from 'react';
+import CarCard from './CarCard';
+
+interface Car {
+  _id: string;
+  name: string;
+  image: string;
+  tags: string[];
+  deposit: string;
+  pricing: { period: string; price: string }[];
+}
+
+interface CarsSliderProps {
+  cars: Car[];
+}
+
+const ITEMS_PER_PAGE = 6;
+
+export default function CarsSlider({ cars }: CarsSliderProps) {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(cars.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentCars = cars.slice(startIndex, endIndex);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const goToPrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  if (cars.length === 0) {
+    return (
+      <div className="text-center text-2xl text-gray-600">
+        Автомобілі завантажуються...
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      {/* Заголовок */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-[30px] md:mb-20 gap-[20px] md:gap-0">
+        <h2 
+          className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] md:leading-none font-black uppercase"
+          style={{ fontFamily: 'var(--font-unbounded)' }}
+        >
+          автопарк
+        </h2>
+        
+        <a
+          href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-2 border-[#070707] rounded-[10px] px-[30px] md:px-[50px] py-4 md:py-5 hover:bg-[#070707] hover:text-white transition-colors"
+        >
+          <span 
+            className="text-[16px] md:text-2xl font-bold leading-none"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
+          >
+            всі авто
+          </span>
+        </a>
+      </div>
+
+      {/* Сітка автомобілів */}
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[50px] mb-12">
+        {currentCars.map((car) => (
+          <CarCard key={car._id} {...car} />
+        ))}
+      </div>
+
+      {/* Пагінація - Desktop */}
+      {totalPages > 1 && (
+        <div className="hidden md:flex justify-center items-center gap-6">
+          {/* Попередня сторінка */}
+          <button
+            onClick={goToPrevious}
+            disabled={currentPage === 1}
+            className="px-8 py-4 border-2 border-[#070707] rounded-[10px] hover:bg-[#070707] hover:text-white transition-colors font-bold disabled:opacity-30 disabled:cursor-not-allowed"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
+          >
+            ←
+          </button>
+
+          {/* Номери сторінок */}
+          <div className="flex gap-3">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => goToPage(page)}
+                className={`w-14 h-14 rounded-[10px] font-bold text-xl transition-all ${
+                  currentPage === page
+                    ? 'text-white shadow-lg scale-110'
+                    : 'border-2 border-[#070707] text-[#070707] hover:bg-[#070707] hover:text-white'
+                }`}
+                style={{
+                  fontFamily: 'var(--font-unbounded)',
+                  ...(currentPage === page && {
+                    background: 'radial-gradient(circle, #FF4400 55%, #D91300 100%)',
+                  }),
+                }}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+
+          {/* Наступна сторінка */}
+          <button
+            onClick={goToNext}
+            disabled={currentPage === totalPages}
+            className="px-8 py-4 border-2 border-[#070707] rounded-[10px] hover:bg-[#070707] hover:text-white transition-colors font-bold disabled:opacity-30 disabled:cursor-not-allowed"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
+          >
+            →
+          </button>
+        </div>
+      )}
+
+      {/* Пагінація - Mobile (тільки стрілки) */}
+      {totalPages > 1 && (
+        <div className="flex md:hidden justify-center items-center gap-4">
+          <button
+            onClick={goToPrevious}
+            disabled={currentPage === 1}
+            className="px-6 py-3 border-2 border-[#070707] rounded-[10px] hover:bg-[#070707] hover:text-white transition-colors font-bold disabled:opacity-30 disabled:cursor-not-allowed text-xl"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
+          >
+            ←
+          </button>
+          
+          <span className="text-[#070707] font-bold text-lg">
+            {currentPage} / {totalPages}
+          </span>
+
+          <button
+            onClick={goToNext}
+            disabled={currentPage === totalPages}
+            className="px-6 py-3 border-2 border-[#070707] rounded-[10px] hover:bg-[#070707] hover:text-white transition-colors font-bold disabled:opacity-30 disabled:cursor-not-allowed text-xl"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
+          >
+            →
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
