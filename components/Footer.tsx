@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[250px] py-[60px] md:py-[100px]">
+    <footer className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]">
       <div className="flex flex-col gap-[40px] md:gap-[80px]">
 
         {/* Desktop Layout */}
@@ -27,11 +27,11 @@ export default function Footer() {
           </div>
 
           {/* Contact info in horizontal layout */}
-          <div className="flex gap-20 items-center">
+          <div className="flex gap-[30px] xl:gap-[50px] 2xl:gap-20 items-center">
             {/* Column 2 - Phone, Email and Address */}
             <div className="flex flex-col gap-[50px]">
               {/* Phone and Email row */}
-              <div className="flex gap-[50px]">
+              <div className="flex gap-[30px] xl:gap-[50px]">
                 {/* Телефон */}
                 <div className="flex flex-col justify-center gap-[10px]">
                   <span 
