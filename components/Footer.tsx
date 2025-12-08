@@ -40,12 +40,12 @@ export default function Footer() {
                   >
                     Номер телефону
                   </span>
-                <Link 
+                  <Link 
                   href="tel:+380777877087"
                   className="flex items-center gap-[10px] group transition-colors"
                   >
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 5C7.5 5 7 5.5 7 6V9C7 18 13 24 22 24H25C25.5 24 26 23.5 26 23V19C26 18.5 25.5 18 25 18H22C21.5 18 21 18.5 21 19V21C16 20 11 15 10 10H12C12.5 10 13 9.5 13 9V6C13 5.5 12.5 5 12 5H8Z" fill="white" class="group-hover:fill-[#FF4400]"/>
+                      <path d="M8 5C7.5 5 7 5.5 7 6V9C7 18 13 24 22 24H25C25.5 24 26 23.5 26 23V19C26 18.5 25.5 18 25 18H22C21.5 18 21 18.5 21 19V21C16 20 11 15 10 10H12C12.5 10 13 9.5 13 9V6C13 5.5 12.5 5 12 5H8Z" fill="white" className="group-hover:fill-[#FF4400]"/>
                     </svg>
                     <span 
                       className="text-white text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
@@ -64,11 +64,11 @@ export default function Footer() {
                   >
                     Електронна пошта
                   </span>
-                <Link 
+                  <Link 
                   href="mailto:rentalviv@gmail.com"
                   className="flex items-center gap-[10px] group transition-colors"
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="group-hover:[&_*]:stroke-[#FF4400]">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:[&_*]:stroke-[#FF4400]">
                       <rect x="4" y="7" width="22" height="16" rx="2" stroke="white" strokeWidth="2"/>
                       <path d="M4 9L15 16L26 9" stroke="white" strokeWidth="2"/>
                     </svg>
@@ -122,8 +122,8 @@ export default function Footer() {
                     className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
                   >
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="30" height="30" rx="5" fill="white" class="group-hover:fill-[#FF4400]"/>
-                      <path d="M17 10H19V7H16C14.3 7 13 8.3 13 10V12H11V15H13V23H16V15H18L19 12H16V10C16 9.4 16.4 10 17 10Z" fill="#070707" class="group-hover:fill-white"/>
+                      <rect width="30" height="30" rx="5" fill="white" className="group-hover:fill-[#FF4400]"/>
+                      <path d="M17 10H19V7H16C14.3 7 13 8.3 13 10V12H11V15H13V23H16V15H18L19 12H16V10C16 9.4 16.4 10 17 10Z" fill="#070707" className="group-hover:fill-white"/>
                     </svg>
                   </Link>
                   <Link 
@@ -131,7 +131,7 @@ export default function Footer() {
                     target="_blank"
                     className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="group-hover:[&_*]:stroke-[#FF4400] group-hover:[&_*]:fill-[#FF4400]">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:[&_*]:stroke-[#FF4400] group-hover:[&_*]:fill-[#FF4400]">
                       <rect x="6" y="6" width="18" height="18" rx="4" stroke="white" strokeWidth="2"/>
                       <circle cx="15" cy="15" r="4" stroke="white" strokeWidth="2"/>
                       <circle cx="21" cy="9" r="1.5" fill="white"/>
@@ -155,8 +155,8 @@ export default function Footer() {
                     className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
                   >
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="15" cy="15" r="15" fill="white" class="group-hover:fill-[#FF4400]"/>
-                      <path d="M21.5 8.5L7.5 14.5L11 17L18 11L13 18.5L18.5 21.5L21.5 8.5Z" fill="#070707" class="group-hover:fill-white"/>
+                      <circle cx="15" cy="15" r="15" fill="white" className="group-hover:fill-[#FF4400]"/>
+                      <path d="M21.5 8.5L7.5 14.5L11 17L18 11L13 18.5L18.5 21.5L21.5 8.5Z" fill="#070707" className="group-hover:fill-white"/>
                     </svg>
                   </Link>
                   <Link 
@@ -165,8 +165,8 @@ export default function Footer() {
                     className="w-[30px] h-[30px] hover:scale-110 transition-transform group"
                   >
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="15" cy="15" r="15" fill="white" class="group-hover:fill-[#FF4400]"/>
-                      <path d="M20 9C18.5 7.5 16.5 7 15 7C11 7 7.5 10.5 7.5 14.5C7.5 16 8 17.5 8.5 18.5L7.5 22.5L11.5 21.5C12.5 22 13.5 22.5 15 22.5C19 22.5 22.5 19 22.5 15C22.5 13 21.5 10.5 20 9ZM18 17.5C17.5 18 17 18 16 18C15.5 18 14 17.5 12.5 16.5C11 15 9.5 13 9.5 12.5C9.5 12 9.5 11 10 10.5C10.5 10 11 10 11.5 10C11.5 10 12 11 12.5 12C12.5 12.5 12.5 12.5 12 13C12 13 12 13.5 12.5 14C13 15 14 15.5 14.5 16C15 16.5 15.5 16 16 16C16.5 15.5 17 15 17 15C17.5 15 18 15.5 18 16C18 16.5 18 17 18 17.5Z" fill="#070707" class="group-hover:fill-white"/>
+                      <circle cx="15" cy="15" r="15" fill="white" className="group-hover:fill-[#FF4400]"/>
+                      <path d="M20 9C18.5 7.5 16.5 7 15 7C11 7 7.5 10.5 7.5 14.5C7.5 16 8 17.5 8.5 18.5L7.5 22.5L11.5 21.5C12.5 22 13.5 22.5 15 22.5C19 22.5 22.5 19 22.5 15C22.5 13 21.5 10.5 20 9ZM18 17.5C17.5 18 17 18 16 18C15.5 18 14 17.5 12.5 16.5C11 15 9.5 13 9.5 12.5C9.5 12 9.5 11 10 10.5C10.5 10 11 10 11.5 10C11.5 10 12 11 12.5 12C12.5 12.5 12.5 12.5 12 13C12 13 12 13.5 12.5 14C13 15 14 15.5 14.5 16C15 16.5 15.5 16 16 16C16.5 15.5 17 15 17 15C17.5 15 18 15.5 18 16C18 16.5 18 17 18 17.5Z" fill="#070707" className="group-hover:fill-white"/>
                     </svg>
                   </Link>
                 </div>
