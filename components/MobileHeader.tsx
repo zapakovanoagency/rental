@@ -124,7 +124,16 @@ export default function MobileHeader() {
             <img 
               src="/images/logo.svg" 
               alt="RentalLviv" 
-              className="h-[30px] md:h-[45px]" 
+              className="h-[30px] md:h-[45px] transition-all duration-300"
+              style={{
+                filter: 'brightness(1)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.filter = 'brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(6500%) hue-rotate(0deg) brightness(110%) contrast(120%)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.filter = 'brightness(1)';
+              }}
             />
           </Link>
         </div>

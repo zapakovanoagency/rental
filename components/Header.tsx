@@ -53,7 +53,20 @@ export default function Header() {
 
         {/* Center - Logo */}
         <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center px-8 xl:px-12 2xl:px-14 py-3 xl:py-3.5 2xl:py-4 bg-[#070707] rounded-full top-2 shadow-[0_0_70px_rgba(0,0,0,1)] group">
-         <img src="/images/logo.svg" alt="" className="h-8 xl:h-10 2xl:h-12 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
+         <img 
+           src="/images/logo.svg" 
+           alt="RentalLviv" 
+           className="h-8 xl:h-10 2xl:h-12 transition-all duration-300"
+           style={{
+             filter: 'brightness(1)',
+           }}
+           onMouseEnter={(e) => {
+             e.currentTarget.style.filter = 'brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(6500%) hue-rotate(0deg) brightness(110%) contrast(120%)';
+           }}
+           onMouseLeave={(e) => {
+             e.currentTarget.style.filter = 'brightness(1)';
+           }}
+         />
         </Link>
 
         {/* Right Part */}
