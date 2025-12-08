@@ -16,10 +16,10 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[70px] shadow-[0_0_70px_rgba(0,0,0,1)]">
       <div className="max-w-[1920px] mx-auto px-[50px] xl:px-[150px] 2xl:px-[250px] h-full flex items-center justify-between">
         {/* Left Part - Navigation */}
-        <nav className="flex items-center gap-[50px]">
+        <nav className="flex items-center gap-[20px] xl:gap-[35px] 2xl:gap-[50px]">
           <Link 
             href="/#autopark" 
-            className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
+            className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
             Автопарк
@@ -27,7 +27,7 @@ export default function Header() {
           </Link>
           <Link 
             href="/#rental-conditions" 
-            className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
+            className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
             Умови оренди
@@ -35,7 +35,7 @@ export default function Header() {
           </Link>
           <Link 
             href="/#services" 
-            className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
+            className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
             Послуги
@@ -43,7 +43,7 @@ export default function Header() {
           </Link>
           <Link 
             href="/#contacts" 
-            className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
+            className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
             Контакти
@@ -52,12 +52,12 @@ export default function Header() {
         </nav>
 
         {/* Center - Logo */}
-        <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center px-14 py-4 bg-[#070707] rounded-full top-2 shadow-[0_0_70px_rgba(0,0,0,1)] group">
-         <img src="/images/logo.svg" alt="" className="h-12 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
+        <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center px-8 xl:px-12 2xl:px-14 py-3 xl:py-3.5 2xl:py-4 bg-[#070707] rounded-full top-2 shadow-[0_0_70px_rgba(0,0,0,1)] group">
+         <img src="/images/logo.svg" alt="" className="h-8 xl:h-10 2xl:h-12 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
         </Link>
 
         {/* Right Part */}
-        <div className="flex items-center gap-[30px]">
+        <div className="flex items-center gap-[15px] xl:gap-[20px] 2xl:gap-[30px]">
           {/* Currency Selector */}
           <div className="relative">
             <button 
@@ -67,7 +67,7 @@ export default function Header() {
               }}
               className="flex items-center gap-[5px] cursor-pointer hover:text-[#FF4400] transition-colors"
             >
-              <span className="text-white text-lg">{currency}</span>
+              <span className="text-white text-sm xl:text-base 2xl:text-lg">{currency}</span>
               <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
               </svg>
@@ -101,7 +101,7 @@ export default function Header() {
               }}
               className="flex items-center gap-[5px] cursor-pointer hover:text-[#FF4400] transition-colors"
             >
-              <span className="text-white text-lg">{language}</span>
+              <span className="text-white text-sm xl:text-base 2xl:text-lg">{language}</span>
               <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
               </svg>
