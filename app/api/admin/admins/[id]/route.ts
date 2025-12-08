@@ -5,7 +5,7 @@ import Admin from '@/models/Admin';
 // PUT - оновити адміна (змінити пароль)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Перевіряємо авторизацію
@@ -20,6 +20,7 @@ export async function PUT(
     await connectDB();
 
     const { password, username, email } = await request.json();
+    const { id } = await params;
 
     const updateData: any = {};
     
@@ -36,7 +37,7 @@ export async function PUT(
       updateData.password = password;
     }
 
-    const admin = await Admin.findById(params.id);
+    const admin = await Admin.findById(id);
     
     if (!admin) {
       return NextResponse.json(
@@ -74,7 +75,7 @@ export async function PUT(
 // DELETE - видалити адміна
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Перевіряємо авторизацію
@@ -86,8 +87,10 @@ export async function DELETE(
       );
     }
 
+    const { id } = await params;
+
     // Перевіряємо чи не намагається видалити себе
-    if (adminId === params.id) {
+    if (adminId === id) {
       return NextResponse.json(
         { success: false, error: 'Ви не можете видалити себе' },
         { status: 400 }
@@ -96,7 +99,7 @@ export async function DELETE(
 
     await connectDB();
 
-    const admin = await Admin.findByIdAndDelete(params.id);
+    const admin = await Admin.findByIdAndDelete(id);
 
     if (!admin) {
       return NextResponse.json(
