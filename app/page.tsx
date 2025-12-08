@@ -31,7 +31,7 @@ export default async function Home() {
     <div className="min-h-screen bg-white">
       <HeroSection />
 
-      <section id="autopark" className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[30px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
+      <section id="autopark" className="bg-[#DDDDDD] px-[15px] md:px-[50px] lg:px-[30px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
         <CarsSlider cars={carsData} />
       </section>
 

@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[70px] shadow-[0_0_70px_rgba(0,0,0,1)]">
-      <div className="max-w-[1920px] mx-auto px-[30px] lg:px-[40px] xl:px-[150px] 2xl:px-[250px] h-full flex items-center justify-between">
+      <div className="w-full mx-auto px-[30px] lg:px-[40px] xl:px-[150px] 2xl:px-[250px] h-full flex items-center justify-between">
         {/* Left Part - Navigation */}
         <nav className="flex items-center gap-[20px] xl:gap-[35px] 2xl:gap-[50px]">
           <Link 
