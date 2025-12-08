@@ -9,7 +9,9 @@ export default function Footer() {
         <div className="hidden lg:flex justify-between items-center">
           {/* Column 1 - Logo and Description */}
           <div className="flex flex-col gap-5">
-            <img src="/images/logo-footer.svg" alt="RentalLviv" className="w-[273px] h-auto" />
+            <Link href="/" className="group">
+              <img src="/images/logo-footer.svg" alt="RentalLviv" className="w-[273px] h-auto group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
+            </Link>
             <div className="flex flex-col gap-[10px]">
               <p 
                 className="text-white text-base leading-[120%]"

@@ -18,7 +18,7 @@ export default function Header() {
         {/* Left Part - Navigation */}
         <nav className="flex items-center gap-[50px]">
           <Link 
-            href="#autopark" 
+            href="/#autopark" 
             className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
@@ -26,7 +26,7 @@ export default function Header() {
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link 
-            href="#rental-conditions" 
+            href="/#rental-conditions" 
             className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
@@ -34,7 +34,7 @@ export default function Header() {
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link 
-            href="#services" 
+            href="/#services" 
             className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
@@ -42,7 +42,7 @@ export default function Header() {
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link 
-            href="#contacts" 
+            href="/#contacts" 
             className="text-white text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
@@ -52,9 +52,9 @@ export default function Header() {
         </nav>
 
         {/* Center - Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center px-14 py-4 bg-[#070707] rounded-full top-2 shadow-[0_0_70px_rgba(0,0,0,1)]">
-         <img src="/images/logo.svg" alt="" className="h-12" />
-        </div>
+        <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center px-14 py-4 bg-[#070707] rounded-full top-2 shadow-[0_0_70px_rgba(0,0,0,1)] group">
+         <img src="/images/logo.svg" alt="" className="h-12 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[5000%] group-hover:hue-rotate-[-10deg] transition-all" />
+        </Link>
 
         {/* Right Part */}
         <div className="flex items-center gap-[30px]">
