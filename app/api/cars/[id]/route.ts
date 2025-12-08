@@ -5,11 +5,12 @@ import Car from '@/models/Car';
 // GET - отримати один автомобіль
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    const car = await Car.findById(params.id);
+    const { id } = await params;
+    const car = await Car.findById(id);
     
     if (!car) {
       return NextResponse.json({ 
@@ -33,14 +34,15 @@ export async function GET(
 // PUT - оновити автомобіль
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
     const body = await request.json();
+    const { id } = await params;
     
     const car = await Car.findByIdAndUpdate(
-      params.id,
+      id,
       body,
       { new: true, runValidators: true }
     );
@@ -67,11 +69,12 @@ export async function PUT(
 // DELETE - видалити автомобіль
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    const car = await Car.findByIdAndDelete(params.id);
+    const { id } = await params;
+    const car = await Car.findByIdAndDelete(id);
     
     if (!car) {
       return NextResponse.json({ 
