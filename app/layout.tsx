@@ -18,8 +18,58 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: "RentalLviv - Оренда автомобілів",
-  description: "Оренда автомобілів у Львові",
+  metadataBase: new URL('https://www.rentallviv.com'),
+  title: {
+    default: 'RentalLviv - Оренда автомобілів у Львові | Вигідна оренда авто',
+    template: '%s | RentalLviv'
+  },
+  description: 'Оренда автомобілів у Львові за вигідними цінами. Великий вибір авто преміум та середнього класу. Оренда без застави. Доставка авто. Зручна онлайн-бронювання через Telegram.',
+  keywords: ['оренда авто львів', 'оренда автомобілів львів', 'прокат авто львів', 'оренда машини львів', 'rent a car lviv', 'car rental lviv', 'автопрокат львів', 'оренда авто без застави'],
+  authors: [{ name: 'RentalLviv' }],
+  creator: 'RentalLviv',
+  publisher: 'RentalLviv',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'uk_UA',
+    url: 'https://www.rentallviv.com',
+    title: 'RentalLviv - Оренда автомобілів у Львові',
+    description: 'Оренда автомобілів у Львові за вигідними цінами. Великий вибір авто преміум та середнього класу.',
+    siteName: 'RentalLviv',
+    images: [
+      {
+        url: '/images/hero-banner.webp',
+        width: 1200,
+        height: 630,
+        alt: 'RentalLviv - Оренда автомобілів у Львові',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RentalLviv - Оренда автомобілів у Львові',
+    description: 'Оренда автомобілів у Львові за вигідними цінами. Великий вибір авто.',
+    images: ['/images/hero-banner.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +79,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
+      <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://t.me" />
+        <meta name="theme-color" content="#FF4400" />
+      </head>
       <body
         className={`${nunitoSans.variable} ${unbounded.variable} antialiased`}
       >

@@ -1,15 +1,20 @@
+import Image from 'next/image';
+
 export default function HeroSection() {
   return (
     <section 
       id="hero" 
-      className="relative h-[550px] md:h-[1024px] lg:h-[900px] flex items-start md:items-center justify-start md:justify-center px-[15px] md:px-5 pt-[60px] pb-[60px] md:py-0"
-      style={{
-        backgroundImage: 'url(/images/hero-banner.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="relative h-[550px] md:h-[1024px] lg:h-[900px] flex items-start md:items-center justify-start md:justify-center px-[15px] md:px-5 pt-[60px] pb-[60px] md:py-0 overflow-hidden"
     >
+      <Image
+        src="/images/hero-banner.webp"
+        alt="Оренда автомобілів у Львові"
+        fill
+        priority
+        quality={90}
+        className="object-cover"
+        sizes="100vw"
+      />
       {/* Dark overlay - закоментовано */}
       {/* <div className="absolute inset-0 bg-black/40"></div> */}
       

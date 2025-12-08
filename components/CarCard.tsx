@@ -20,9 +20,12 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
         <div className="w-full md:w-[180px] lg:w-[200px] xl:w-[300px] 2xl:w-[317px] h-[199.5px] md:h-[150px] lg:h-[170px] xl:h-[235px] 2xl:h-[265px] bg-gray-300 rounded-[8px] md:rounded-[10px] relative overflow-hidden">
           <Image
             src={image}
-            alt={name}
+            alt={`${name} - оренда авто у Львові`}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 180px, (max-width: 1280px) 200px, (max-width: 1536px) 300px, 317px"
+            loading="lazy"
+            quality={85}
           />
         </div>
         
