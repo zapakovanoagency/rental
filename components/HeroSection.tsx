@@ -1,6 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   return (
     <section 
       id="hero" 
@@ -21,14 +25,13 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-left md:text-center w-full max-w-[290px] md:max-w-none flex flex-col items-start md:items-center gap-[308px] md:gap-[193px]">
         <h1 
-          className="text-white text-[30px] leading-[100%] md:text-[70px] lg:text-[80px] md:leading-[100%] lg:leading-[80px] font-black uppercase"
+          className="text-white text-[30px] leading-[100%] md:text-[70px] lg:text-[80px] md:leading-[100%] lg:leading-[80px] font-black uppercase whitespace-pre-line"
           style={{ 
             fontFamily: 'var(--font-unbounded)',
             textShadow: '0 0 50px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1)'
           }}
         >
-          комфортна оренда<br />
-          авто у Львові
+          {t('heroTitle')}
         </h1>
         
         <a
@@ -45,7 +48,7 @@ export default function HeroSection() {
           <svg className="w-[17px] h-[14px] md:hidden" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.5 1.5L3.5 7.5L7 9.5L14 4.5L9 11L14.5 13.5L16.5 1.5Z" fill="white"/>
           </svg>
-          <span className="relative z-10">Актуальні авто і ціни</span>
+          <span className="relative z-10">{t('actualCars')}</span>
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
         </a>
       </div>

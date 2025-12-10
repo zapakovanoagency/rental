@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import CarCard from './CarCard';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Car {
   _id: string;
@@ -19,6 +20,7 @@ interface CarsSliderProps {
 const ITEMS_PER_PAGE = 6;
 
 export default function CarsSlider({ cars }: CarsSliderProps) {
+  const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(cars.length / ITEMS_PER_PAGE);
@@ -58,7 +60,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
           className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] md:leading-none font-black uppercase"
           style={{ fontFamily: 'var(--font-unbounded)' }}
         >
-          автопарк
+          {t('autoparkTitle')}
         </h2>
         
         <a
@@ -71,7 +73,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
             className="text-[16px] md:text-2xl font-bold leading-none"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
-            всі авто
+            {t('viewAllCars')}
           </span>
         </a>
       </div>

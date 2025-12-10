@@ -2,17 +2,23 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { Currency, currencies as currencySymbols } from '@/lib/currency';
 
 export default function MobileHeader() {
+  const { language: currentLanguage, setLanguage, t } = useLanguage();
+  const { currency: currentCurrency, setCurrency, currencySymbol } = useCurrency();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currency, setCurrency] = useState('$');
-  const [language, setLanguage] = useState('UA');
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isSocialOpen, setIsSocialOpen] = useState(false);
 
-  const currencies = ['$', '€', '₴'];
-  const languages = ['UA', 'EN'];
+  const currencies: Currency[] = ['USD', 'EUR', 'UAH'];
+  const languages = [
+    { code: 'uk', label: 'UA' },
+    { code: 'en', label: 'EN' }
+  ] as const;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,7 +41,7 @@ export default function MobileHeader() {
               className="text-white text-[10px] md:text-sm font-extrabold leading-none uppercase"
               style={{ fontFamily: 'var(--font-unbounded)' }}
             >
-              МЕНЮ
+              {t('menu')}
             </span>
             <svg className="w-[6px] h-[4px] md:w-[9px] md:h-[5px]" viewBox="0 0 9 5" fill="none">
               <path d="M4.5 5L0 0L9 0L4.5 5Z" fill="white"/>
@@ -52,10 +58,10 @@ export default function MobileHeader() {
                   setIsLanguageOpen(false);
                 }}
                 className="flex items-center gap-[5px]"
-                aria-label={`Вибрати валюту, поточна: ${currency}`}
+                aria-label={`Вибрати валюту, поточна: ${currencySymbol}`}
                 aria-expanded={isCurrencyOpen}
               >
-                <span className="text-white text-lg">{currency}</span>
+                <span className="text-white text-lg">{currencySymbol}</span>
                 <svg width="9" height="30" viewBox="0 0 9 30" fill="none">
                   <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
                 </svg>
@@ -70,10 +76,10 @@ export default function MobileHeader() {
                         setIsCurrencyOpen(false);
                       }}
                       className={`w-full px-4 py-3 text-2xl text-center rounded-[10px] transition-all ${
-                        currency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
+                        currentCurrency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                       }`}
                     >
-                      {curr}
+                      {currencySymbols[curr]}
                     </button>
                   ))}
                 </div>
@@ -88,10 +94,10 @@ export default function MobileHeader() {
                   setIsCurrencyOpen(false);
                 }}
                 className="flex items-center gap-[5px]"
-                aria-label={`Вибрати мову, поточна: ${language}`}
+                aria-label={`Вибрати мову, поточна: ${languages.find(l => l.code === currentLanguage)?.label}`}
                 aria-expanded={isLanguageOpen}
               >
-                <span className="text-white text-lg">{language}</span>
+                <span className="text-white text-lg">{languages.find(l => l.code === currentLanguage)?.label}</span>
                 <svg width="9" height="30" viewBox="0 0 9 30" fill="none">
                   <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
                 </svg>
@@ -100,16 +106,16 @@ export default function MobileHeader() {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[20px] p-4 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[120px] z-[60]">
                   {languages.map((lang) => (
                     <button
-                      key={lang}
+                      key={lang.code}
                       onClick={() => {
-                        setLanguage(lang);
+                        setLanguage(lang.code);
                         setIsLanguageOpen(false);
                       }}
                       className={`w-full px-4 py-3 text-2xl text-center rounded-[10px] transition-all ${
-                        language === lang ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
+                        currentLanguage === lang.code ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                       }`}
                     >
-                      {lang}
+                      {lang.label}
                     </button>
                   ))}
                 </div>
@@ -305,7 +311,7 @@ export default function MobileHeader() {
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
             >
-              Автопарк
+              {t('autopark')}
             </Link>
             <Link 
               href="#rental-conditions" 
@@ -313,7 +319,7 @@ export default function MobileHeader() {
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
             >
-              Умови оренди
+              {t('rentalConditions')}
             </Link>
             <Link 
               href="#services" 
@@ -321,7 +327,7 @@ export default function MobileHeader() {
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
             >
-              Послуги
+              {t('services')}
             </Link>
             <Link 
               href="#contacts" 
@@ -329,7 +335,7 @@ export default function MobileHeader() {
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
             >
-              Контакти
+              {t('contacts')}
             </Link>
           </nav>
         </div>
@@ -352,7 +358,7 @@ export default function MobileHeader() {
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Автопарк
+                {t('autopark')}
               </Link>
               <Link 
                 href="#rental-conditions" 
@@ -360,7 +366,7 @@ export default function MobileHeader() {
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Умови оренди
+                {t('rentalConditions')}
               </Link>
               <Link 
                 href="#services" 
@@ -368,7 +374,7 @@ export default function MobileHeader() {
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Послуги
+                {t('services')}
               </Link>
               <Link 
                 href="#contacts" 
@@ -376,7 +382,7 @@ export default function MobileHeader() {
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Контакти
+                {t('contacts')}
               </Link>
             </nav>
 
@@ -395,7 +401,7 @@ export default function MobileHeader() {
                 className="text-white text-[10px] font-bold leading-none uppercase"
                 style={{ fontFamily: 'var(--font-unbounded)' }}
               >
-                ДОСТУПНІ АВТО
+                {t('availableCars')}
               </span>
             </a>
 
@@ -409,10 +415,10 @@ export default function MobileHeader() {
                     setIsLanguageOpen(false);
                   }}
                   className="flex items-center gap-[5px]"
-                  aria-label={`Вибрати валюту, поточна: ${currency}`}
+                  aria-label={`Вибрати валюту, поточна: ${currencySymbol}`}
                   aria-expanded={isCurrencyOpen}
                 >
-                  <span className="text-white text-[16px] font-bold">{currency}</span>
+                  <span className="text-white text-[16px] font-bold">{currencySymbol}</span>
                   <svg width="6" height="24" viewBox="0 0 6 24" fill="white">
                     <path d="M3 16L0 13L6 13L3 16Z" />
                   </svg>
@@ -427,10 +433,10 @@ export default function MobileHeader() {
                           setIsCurrencyOpen(false);
                         }}
                         className={`w-full px-3 py-2 text-xl text-center rounded-[10px] transition-all ${
-                          currency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
+                          currentCurrency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                         }`}
                       >
-                        {curr}
+                        {currencySymbols[curr]}
                       </button>
                     ))}
                   </div>
@@ -445,10 +451,10 @@ export default function MobileHeader() {
                     setIsCurrencyOpen(false);
                   }}
                   className="flex items-center gap-[5px]"
-                  aria-label={`Вибрати мову, поточна: ${language}`}
+                  aria-label={`Вибрати мову, поточна: ${languages.find(l => l.code === currentLanguage)?.label}`}
                   aria-expanded={isLanguageOpen}
                 >
-                  <span className="text-white text-[16px] font-bold leading-tight">{language}</span>
+                  <span className="text-white text-[16px] font-bold leading-tight">{languages.find(l => l.code === currentLanguage)?.label}</span>
                   <svg width="6" height="24" viewBox="0 0 6 24" fill="white">
                     <path d="M3 16L0 13L6 13L3 16Z" />
                   </svg>
@@ -457,16 +463,16 @@ export default function MobileHeader() {
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[20px] p-3 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[100px] z-[60]">
                     {languages.map((lang) => (
                       <button
-                        key={lang}
+                        key={lang.code}
                         onClick={() => {
-                          setLanguage(lang);
+                          setLanguage(lang.code);
                           setIsLanguageOpen(false);
                         }}
                         className={`w-full px-3 py-2 text-xl text-center rounded-[10px] transition-all ${
-                          language === lang ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
+                          currentLanguage === lang.code ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                         }`}
                       >
-                        {lang}
+                        {lang.label}
                       </button>
                     ))}
                   </div>

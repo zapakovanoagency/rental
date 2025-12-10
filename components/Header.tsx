@@ -2,15 +2,21 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { Currency, currencies as currencySymbols } from '@/lib/currency';
 
 export default function Header() {
-  const [currency, setCurrency] = useState('$');
-  const [language, setLanguage] = useState('UA');
+  const { language: currentLanguage, setLanguage, t } = useLanguage();
+  const { currency: currentCurrency, setCurrency, currencySymbol } = useCurrency();
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
-  const currencies = ['$', '€', '₴'];
-  const languages = ['UA', 'EN'];
+  const currencies: Currency[] = ['USD', 'EUR', 'UAH'];
+  const languages = [
+    { code: 'uk', label: 'UA' },
+    { code: 'en', label: 'EN' }
+  ] as const;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[70px] shadow-[0_0_70px_rgba(0,0,0,1)]">
@@ -22,7 +28,7 @@ export default function Header() {
             className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
-            Автопарк
+            {t('autopark')}
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link 
@@ -30,7 +36,7 @@ export default function Header() {
             className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
-            Умови оренди
+            {t('rentalConditions')}
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link 
@@ -38,7 +44,7 @@ export default function Header() {
             className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
-            Послуги
+            {t('services')}
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link 
@@ -46,7 +52,7 @@ export default function Header() {
             className="text-white text-sm xl:text-base 2xl:text-lg font-normal leading-none hover:text-[#FF4400] transition-all relative group"
             style={{ fontFamily: 'Nunito Sans, sans-serif' }}
           >
-            Контакти
+            {t('contacts')}
             <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#FF4400] group-hover:w-full transition-all duration-300"></span>
           </Link>
         </nav>
@@ -79,16 +85,16 @@ export default function Header() {
                 setIsLanguageOpen(false);
               }}
               className="flex items-center gap-[5px] cursor-pointer hover:text-[#FF4400] transition-colors"
-              aria-label={`Вибрати валюту, поточна: ${currency}`}
+              aria-label={`Вибрати валюту, поточна: ${currencySymbol}`}
               aria-expanded={isCurrencyOpen}
             >
-              <span className="text-white text-sm xl:text-base 2xl:text-lg">{currency}</span>
+              <span className="text-white text-sm xl:text-base 2xl:text-lg">{currencySymbol}</span>
               <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
               </svg>
             </button>
             {isCurrencyOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[15px] lg:rounded-[20px] p-2 lg:p-3 xl:p-4 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[70px] lg:min-w-[80px] xl:min-w-[100px] z-[60]">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[15px] lg:rounded-[20px] p-2 lg:p-3 xl:p-4 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[60px] lg:min-w-[60px] xl:min-w-[60px] z-[60]">
                 {currencies.map((curr) => (
                   <button
                     key={curr}
@@ -96,11 +102,11 @@ export default function Header() {
                       setCurrency(curr);
                       setIsCurrencyOpen(false);
                     }}
-                    className={`w-full px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 xl:py-3 text-lg lg:text-xl xl:text-2xl text-center rounded-[8px] lg:rounded-[10px] transition-all ${
-                      currency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
+                    className={`w-full px-2 lg:px-2 xl:px-2 py-1.5 lg:py-1 xl:py-1 text-lg lg:text-lg xl:text-lg text-center rounded-[8px] lg:rounded-[10px] transition-all ${
+                      currentCurrency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                     }`}
                   >
-                    {curr}
+                    {currencySymbols[curr]}
                   </button>
                 ))}
               </div>
@@ -115,28 +121,28 @@ export default function Header() {
                 setIsCurrencyOpen(false);
               }}
               className="flex items-center gap-[5px] cursor-pointer hover:text-[#FF4400] transition-colors"
-              aria-label={`Вибрати мову, поточна: ${language}`}
+              aria-label={`Вибрати мову, поточна: ${languages.find(l => l.code === currentLanguage)?.label}`}
               aria-expanded={isLanguageOpen}
             >
-              <span className="text-white text-sm xl:text-base 2xl:text-lg">{language}</span>
+              <span className="text-white text-sm xl:text-base 2xl:text-lg">{languages.find(l => l.code === currentLanguage)?.label}</span>
               <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
               </svg>
             </button>
             {isLanguageOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[15px] lg:rounded-[20px] p-2 lg:p-3 xl:p-4 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[80px] lg:min-w-[100px] xl:min-w-[120px] z-[60]">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[15px] lg:rounded-[20px] p-2 lg:p-3 xl:p-2 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[80px] lg:min-w-[100px] xl:min-w-[100px] z-[60]">
                 {languages.map((lang) => (
                   <button
-                    key={lang}
+                    key={lang.code}
                     onClick={() => {
-                      setLanguage(lang);
+                      setLanguage(lang.code);
                       setIsLanguageOpen(false);
                     }}
-                    className={`w-full px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 xl:py-3 text-lg lg:text-xl xl:text-2xl text-center rounded-[8px] lg:rounded-[10px] transition-all ${
-                      language === lang ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
+                    className={`w-full px-2 lg:px-1 xl:px-1 py-1.5 lg:py-1 xl:py-1 text-lg lg:text-lg xl:text-lg text-center rounded-[8px] lg:rounded-[10px] transition-all ${
+                      currentLanguage === lang.code ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                     }`}
                   >
-                    {lang}
+                    {lang.label}
                   </button>
                 ))}
               </div>
@@ -200,7 +206,7 @@ export default function Header() {
           >
             <img src="/images/header-btn.svg" alt="" className="transition-all" />
             <span className="text-white text-xs font-bold leading-none tracking-wide transition-colors" style={{ fontFamily: 'Unbounded, sans-serif' }}>
-              ДОСТУПНІ АВТО
+              {t('availableCars')}
             </span>
           </a>
         </div>

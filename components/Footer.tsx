@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[30px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]">
       <div className="flex flex-col gap-[40px] md:gap-[80px]">
@@ -17,13 +22,13 @@ export default function Footer() {
                 className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                RentaLviv - комфортна оренда авто
+                {t('footerDescription')}
               </p>
               <p 
                 className="text-white text-[10px] xl:text-xs 2xl:text-sm leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                © 2025 RentaLviv.  Всі права захищені
+                {t('footerRights')}
               </p>
             </div>
           </div>
@@ -40,7 +45,7 @@ export default function Footer() {
                     className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                     style={{ fontFamily: 'var(--font-nunito-sans)' }}
                   >
-                    Номер телефону
+                    {t('phoneNumber')}
                   </span>
                   <Link 
                   href="tel:+380777877087"
@@ -64,7 +69,7 @@ export default function Footer() {
                     className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                     style={{ fontFamily: 'var(--font-nunito-sans)' }}
                   >
-                    Електронна пошта
+                    {t('email')}
                   </span>
                   <Link 
                   href="mailto:rentalviv@gmail.com"
@@ -115,7 +120,7 @@ export default function Footer() {
                   className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}
                 >
-                  Слідкуйте за нами в соціальних мережах
+                  {t('followUs')}
                 </span>
                 <div className="flex gap-[10px]">
                   <Link 
@@ -148,7 +153,7 @@ export default function Footer() {
                   className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%]"
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}
                 >
-                  Пишіть нам у мессенджери
+                  {t('writeToManagers')}
                 </span>
                 <div className="flex gap-[10px] items-center">
                   <Link 
@@ -187,7 +192,7 @@ export default function Footer() {
                 className="text-white text-[12px] md:text-base leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Номер телефону
+                {t('phoneNumber')}
               </span>
               <Link 
                 href="tel:+380777877087"
@@ -211,7 +216,7 @@ export default function Footer() {
                 className="text-white text-[12px] md:text-base leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Електронна пошта
+                {t('email')}
               </span>
               <Link 
                 href="mailto:rentalviv@gmail.com"
@@ -237,9 +242,9 @@ export default function Footer() {
               className="text-white text-[12px] md:text-base leading-[120%]"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
             >
-              Наша адреса
+              {t('ourAddress')}
             </span>
-            <div className="flex items-center gap-[10px] md:gap-5">
+            <div className="flex items-center gap-[10px]">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 4C10.5 4 7 7.5 7 12C7 18 15 26 15 26C15 26 23 18 23 12C23 7.5 19.5 4 15 4Z" stroke="white" strokeWidth="2"/>
                 <circle cx="15" cy="12" r="3" fill="white"/>
@@ -248,7 +253,7 @@ export default function Footer() {
                 className="text-white text-[12px] md:text-base font-black leading-[120%]"
                 style={{ fontFamily: 'var(--font-unbounded)' }}
               >
-                м. Львів вул. Стрийська 200а
+                {t('lvivAddress')}
               </span>
             </div>
           </div>
@@ -261,7 +266,7 @@ export default function Footer() {
                 className="text-white text-[12px] md:text-base leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Слідкуйте за нами в соціальних мережах
+                {t('followUs')}
               </span>
               <div className="flex gap-[10px]">
                 <Link 
@@ -294,7 +299,7 @@ export default function Footer() {
                 className="text-white text-[12px] md:text-base leading-[120%]"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
               >
-                Пишіть нам у мессенджери
+                {t('writeToManagers')}
               </span>
               <div className="flex gap-[10px]">
                 <Link 
@@ -332,7 +337,7 @@ export default function Footer() {
             className="text-white text-[10px] md:text-base leading-[120%]"
             style={{ fontFamily: 'var(--font-nunito-sans)' }}
           >
-            RentaLviv - комфортна оренда авто
+            {t('footerDescription')}
           </p>
         </div>
 
@@ -342,7 +347,7 @@ export default function Footer() {
             className="text-white text-[12px] md:text-sm leading-[120%]"
             style={{ fontFamily: 'var(--font-nunito-sans)' }}
           >
-            © 2025 RentaLviv.  Всі права захищені
+            {t('footerRights')}
           </p>
         </div>
       </div>

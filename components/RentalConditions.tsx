@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getRentalConditions } from '@/lib/rentalConditionsData';
 
 interface AccordionItem {
   id: string;
@@ -11,7 +13,7 @@ interface AccordionItem {
   }[];
 }
 
-const rentalConditions: AccordionItem[] = [
+const oldRentalConditions: AccordionItem[] = [
   {
     id: 'driver-requirements',
     title: 'Вимоги до водія',
@@ -140,13 +142,15 @@ const rentalConditions: AccordionItem[] = [
 ];
 
 export default function RentalConditions() {
+  const { language, t } = useLanguage();
+  const rentalConditions = getRentalConditions(language);
   const [activeAccordion, setActiveAccordion] = useState<string>('driver-requirements');
 
   const toggleAccordion = (id: string) => {
     setActiveAccordion(activeAccordion === id ? '' : id);
   };
 
-  const activeContent = rentalConditions.find(item => item.id === activeAccordion);
+  const activeContent = rentalConditions.find((item: AccordionItem) => item.id === activeAccordion);
 
   return (
     <section className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
@@ -155,7 +159,7 @@ export default function RentalConditions() {
         className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] font-black text-left md:text-center mb-[30px] md:mb-20 uppercase"
         style={{ fontFamily: 'var(--font-unbounded)' }}
       >
-        Умови оренди автомобіля
+        {t('rentalConditionsPageTitle')}
       </h2>
 
       {/* Контент */}

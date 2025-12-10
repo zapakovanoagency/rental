@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CurrencyProvider } from "@/contexts/CurrencyContext";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -88,14 +90,18 @@ export default function RootLayout({
       <body
         className={`${nunitoSans.variable} ${unbounded.variable} antialiased`}
       >
-        <div className="hidden lg:block">
-          <Header />
-        </div>
-        <MobileHeader />
-        <main className="pt-[35px] md:pt-[56px] lg:pt-[70px]">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <CurrencyProvider>
+            <div className="hidden lg:block">
+              <Header />
+            </div>
+            <MobileHeader />
+            <main className="pt-[35px] md:pt-[56px] lg:pt-[70px]">
+              {children}
+            </main>
+            <Footer />
+          </CurrencyProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

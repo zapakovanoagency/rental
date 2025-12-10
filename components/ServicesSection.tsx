@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getServices } from '@/lib/servicesData';
 
 interface Service {
   icon: string;
@@ -7,7 +11,7 @@ interface Service {
   description: string;
 }
 
-const services: Service[] = [
+const oldServices: Service[] = [
   {
     icon: '/images/posluga1.svg',
     title: 'Оренда авто без водія',
@@ -41,6 +45,9 @@ const services: Service[] = [
 ];
 
 export default function ServicesSection() {
+  const { language, t } = useLanguage();
+  const services = getServices(language);
+  
   return (
     <section className="bg-[#98A2A6] px-[15px] md:px-[100px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
       {/* Заголовок */}
@@ -48,7 +55,7 @@ export default function ServicesSection() {
         className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] font-black text-left md:text-center mb-[30px] md:mb-20 uppercase"
         style={{ fontFamily: 'var(--font-unbounded)' }}
       >
-        Послуги, які ми надаємо
+        {t('servicesWeProvide')}
       </h2>
 
       {/* Сітка послуг */}
@@ -95,7 +102,7 @@ export default function ServicesSection() {
             className="text-white text-[16px] md:text-2xl font-bold leading-[100%] text-center lowercase"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
-            обрати авто для оренди
+            {t('chooseCar')}
           </span>
         </a>
       </div>

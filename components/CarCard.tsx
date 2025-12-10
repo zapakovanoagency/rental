@@ -1,5 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { convertCurrency, formatPrice } from '@/lib/currency';
 
 interface CarCardProps {
   name: string;
@@ -12,7 +17,31 @@ interface CarCardProps {
   }[];
 }
 
+// Функція для парсингу ціни з тексту (ціни зберігаються в USD)
+const parsePrice = (priceStr: string): number => {
+  const match = priceStr.match(/(\d+(?:[\s,]\d+)?)/);
+  if (!match) return 0;
+  const cleanedStr = match[1].replace(/[\s,]/g, '');
+  return parseInt(cleanedStr);
+};
+
 export default function CarCard({ name, image, tags, deposit, pricing }: CarCardProps) {
+  const { t } = useLanguage();
+  const { currency } = useCurrency();
+  
+  // Конвертуємо ціни з USD в вибрану валюту
+  const convertedPricing = pricing.map(item => {
+    const priceInUSD = parsePrice(item.price);
+    const convertedPrice = convertCurrency(priceInUSD, 'USD', currency);
+    return {
+      period: item.period,
+      price: formatPrice(convertedPrice, currency)
+    };
+  });
+
+  const depositInUSD = parsePrice(deposit);
+  const convertedDeposit = formatPrice(convertCurrency(depositInUSD, 'USD', currency), currency);
+  
   return (
     <div className="bg-[#98A2A6] rounded-[8px] md:rounded-[10px] flex flex-col md:flex-row gap-[25px] md:gap-[15px] lg:gap-[20px] xl:gap-[30px] 2xl:gap-[50px] p-3 md:pl-3 md:pr-[20px] lg:pl-5 lg:pr-[30px] xl:pr-[40px] 2xl:pr-[50px] md:py-3 lg:py-4 xl:py-5 shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)] h-full">
       {/* Фото + кнопка - на мобільному вертикально */}
@@ -40,7 +69,7 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
             <path d="M16.5 1.5L3.5 7.5L7 9.5L14 4.5L9 11L14.5 13.5L16.5 1.5Z" fill="white"/>
           </svg>
           <span className="text-white text-[10px] md:text-[9px] lg:text-[10px] xl:text-xs font-bold leading-none uppercase" style={{ fontFamily: 'var(--font-unbounded)' }}>
-            актуальні авто в оренду
+            {t('rentInTelegram')}
           </span>
         </a>
       </div>
@@ -63,16 +92,16 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
         {/* Застава */}
         <div className="flex justify-between items-start gap-5">
           <span className="text-[#070707] text-xs md:text-[10px] lg:text-xs xl:text-sm font-black leading-none" style={{ fontFamily: 'var(--font-unbounded)' }}>
-            Застава
+            {t('deposit')}
           </span>
           <span className="text-[#070707] text-xs md:text-[10px] lg:text-xs xl:text-sm font-black leading-none" style={{ fontFamily: 'var(--font-unbounded)' }}>
-            {deposit}
+            {convertedDeposit}
           </span>
         </div>
 
         {/* Ціни */}
         <div className="flex flex-col gap-[6px] md:gap-[8px] lg:gap-[10px]">
-          {pricing.map((item, index) => (
+          {convertedPricing.map((item, index) => (
             <div key={index} className="flex justify-between items-start gap-5">
               <span className="text-[#070707] text-xs md:text-[10px] lg:text-xs xl:text-sm font-bold leading-none" style={{ fontFamily: 'var(--font-nunito-sans)' }}>
                 {item.period}
