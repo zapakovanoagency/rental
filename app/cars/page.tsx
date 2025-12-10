@@ -46,13 +46,17 @@ export default function AllCarsPage() {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Прокручуємо до самого верху сторінки
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
     <div className="min-h-screen bg-[#DDDDDD]">
       {/* Header */}
-      <div className="bg-white shadow-md">
+      <div id="cars-content" className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-8 py-8">
           <button
             onClick={() => router.push('/')}

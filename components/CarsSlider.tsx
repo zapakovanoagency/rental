@@ -28,18 +28,28 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentCars = cars.slice(startIndex, endIndex);
 
+  const scrollToSlider = () => {
+    const sliderElement = document.getElementById('cars-slider');
+    if (sliderElement) {
+      sliderElement.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+  };
+
   const goToPage = (page: number) => {
+    scrollToSlider();
     setCurrentPage(page);
   };
 
   const goToPrevious = () => {
     if (currentPage > 1) {
+      scrollToSlider();
       setCurrentPage(currentPage - 1);
     }
   };
 
   const goToNext = () => {
     if (currentPage < totalPages) {
+      scrollToSlider();
       setCurrentPage(currentPage + 1);
     }
   };
@@ -53,7 +63,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
   }
 
   return (
-    <div>
+    <div id="cars-slider">
       {/* Заголовок */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-[30px] md:mb-20 gap-[20px] md:gap-0">
         <h2 
