@@ -19,7 +19,7 @@ let ratesCache: { rates: Record<string, number>; timestamp: number } | null = nu
 const CACHE_DURATION = 60 * 60 * 1000; // 1 година
 
 // Функція для отримання реальних курсів з API
-export async function fetchExchangeRates(): Promise<Record<Currency, number>> {
+export async function fetchExchangeRates(): Promise<Record<string, number>> {
   // Перевіряємо кеш
   if (ratesCache && Date.now() - ratesCache.timestamp < CACHE_DURATION) {
     return ratesCache.rates;
@@ -38,7 +38,7 @@ export async function fetchExchangeRates(): Promise<Record<Currency, number>> {
     const data = await response.json();
     
     // Конвертуємо курси з UAH base у формат "скільки UAH за одиницю"
-    const newRates: Record<Currency, number> = {
+    const newRates: Record<string, number> = {
       UAH: 1,
       USD: 1 / data.rates.USD,
       EUR: 1 / data.rates.EUR
