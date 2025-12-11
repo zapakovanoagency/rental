@@ -64,10 +64,18 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
 
   return (
     <div id="cars-slider">
-      {/* Заголовок */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-[30px] md:mb-20 gap-[20px] md:gap-0">
+      {/* Заголовок - Mobile */}
+      <h2 
+        className="md:hidden text-[#070707] text-[30px] text-center leading-[120%] font-black uppercase mb-[30px]"
+        style={{ fontFamily: 'var(--font-unbounded)' }}
+      >
+        {t('autoparkTitle')}
+      </h2>
+
+      {/* Заголовок і кнопка - Desktop */}
+      <div className="hidden md:flex justify-between items-center mb-20">
         <h2 
-          className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] md:leading-none font-black uppercase"
+          className="text-[#070707] text-[40px] lg:text-[60px] leading-none font-black uppercase"
           style={{ fontFamily: 'var(--font-unbounded)' }}
         >
           {t('autoparkTitle')}
@@ -77,10 +85,10 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-2 border-[#070707] rounded-[10px] px-[30px] md:px-[50px] py-4 md:py-5 hover:bg-[#070707] hover:text-white transition-colors"
+          className="border-2 border-[#070707] rounded-[10px] px-[50px] py-5 hover:bg-[#070707] hover:text-white transition-colors"
         >
           <span 
-            className="text-[16px] md:text-2xl font-bold leading-none uppercase"
+            className="text-2xl font-bold leading-none uppercase"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             {t('viewAllCars')}
@@ -89,11 +97,26 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
       </div>
 
       {/* Сітка автомобілів */}
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[50px] mb-12">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[50px] mb-[30px] md:mb-12">
         {currentCars.map((car) => (
           <CarCard key={car._id} {...car} />
         ))}
       </div>
+
+      {/* Кнопка - Mobile (після сітки) */}
+      <a
+        href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="md:hidden w-full flex justify-center border-2 border-[#070707] rounded-[10px] px-[30px] py-4 hover:bg-[#070707] hover:text-white transition-colors mb-[30px]"
+      >
+        <span 
+          className="text-[16px] font-bold leading-none uppercase"
+          style={{ fontFamily: 'var(--font-unbounded)' }}
+        >
+          {t('viewAllCars')}
+        </span>
+      </a>
 
       {/* Пагінація - Desktop */}
       {totalPages > 1 && (

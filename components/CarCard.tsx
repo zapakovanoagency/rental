@@ -44,7 +44,7 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
   
   return (
     <div className="bg-[#98A2A6] rounded-[8px] md:rounded-[10px] flex flex-col md:flex-row gap-[25px] md:gap-[15px] lg:gap-[20px] xl:gap-[30px] 2xl:gap-[50px] p-3 md:pl-3 md:pr-[20px] lg:pl-5 lg:pr-[20px] xl:pr-[20px] 2xl:pr-[30px] md:py-3 lg:py-4 xl:py-5 shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)] h-full">
-      {/* Фото + кнопка - на мобільному вертикально */}
+      {/* Фото + кнопка (desktop) */}
       <div className="flex flex-col gap-[8px] md:gap-[10px] md:shrink-0 md:justify-center md:self-center">
         <div className="w-full md:w-[180px] lg:w-[200px] xl:w-[300px] 2xl:w-[317px] h-[199.5px] md:h-[150px] lg:h-[170px] xl:h-[235px] 2xl:h-[265px] bg-gray-300 rounded-[8px] md:rounded-[10px] relative overflow-hidden">
           <Image
@@ -58,12 +58,12 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
           />
         </div>
         
-        {/* Чорна кнопка */}
+        {/* Чорна кнопка - Desktop */}
         <a 
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full md:w-[180px] lg:w-[200px] xl:w-[300px] 2xl:w-[317px] h-[36px] md:h-[38px] lg:h-[40px] xl:h-[45px] bg-[#070707] hover:bg-[#DDDDDD] rounded-[8px] md:rounded-[10px] flex items-center justify-center gap-[6px] md:gap-[8px] lg:gap-[10px] px-[15px] md:px-[12px] lg:px-[15px] xl:px-[25px] 2xl:px-[30px] py-3 md:py-[10px] lg:py-[12px] xl:py-[15px] transition-colors group"
+          className="hidden md:flex w-full md:w-[180px] lg:w-[200px] xl:w-[300px] 2xl:w-[317px] h-[36px] md:h-[38px] lg:h-[40px] xl:h-[45px] bg-[#070707] hover:bg-[#DDDDDD] rounded-[8px] md:rounded-[10px] items-center justify-center gap-[6px] md:gap-[8px] lg:gap-[10px] px-[15px] md:px-[12px] lg:px-[15px] xl:px-[25px] 2xl:px-[30px] py-3 md:py-[10px] lg:py-[12px] xl:py-[15px] transition-colors group"
         >
           <svg className="w-3 h-2.5 md:w-[18px] md:h-[15px]" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.5 1.5L3.5 7.5L7 9.5L14 4.5L9 11L14.5 13.5L16.5 1.5Z" fill="white" className="group-hover:fill-[#070707]"/>
@@ -121,6 +121,21 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
           ))}
         </div>
       </div>
+
+      {/* Чорна кнопка - Mobile (внизу картки) */}
+      <a 
+        href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="md:hidden w-full h-[36px] bg-[#070707] hover:bg-[#DDDDDD] rounded-[8px] flex items-center justify-center gap-[6px] px-[15px] py-3 transition-colors group"
+      >
+        <svg className="w-3 h-2.5" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.5 1.5L3.5 7.5L7 9.5L14 4.5L9 11L14.5 13.5L16.5 1.5Z" fill="white" className="group-hover:fill-[#070707]"/>
+        </svg>
+        <span className="text-white group-hover:text-[#070707] text-[10px] font-bold leading-none uppercase" style={{ fontFamily: 'var(--font-unbounded)' }}>
+          {t('rentInTelegram')}
+        </span>
+      </a>
     </div>
   );
 }

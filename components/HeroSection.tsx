@@ -8,15 +8,26 @@ export default function HeroSection() {
   return (
     <section 
       id="hero" 
-      className="relative h-[550px] md:h-[1024px] lg:h-[900px] flex items-start md:items-center justify-start md:justify-center px-[15px] md:px-5 pt-[60px] pb-[60px] md:py-0 overflow-hidden"
+      className="relative h-[550px] md:h-[1024px] lg:h-[900px] flex items-start md:items-center justify-start md:justify-center px-[15px] md:px-5 pt-[60px] pb-[60px] md:p-0 overflow-hidden"
     >
+      {/* Mobile background */}
+      <Image
+        src="/images/hero-banner-mob.png"
+        alt="Оренда автомобілів у Львові"
+        fill
+        priority
+        quality={90}
+        className="object-cover md:hidden"
+        sizes="100vw"
+      />
+      {/* Desktop/Tablet background */}
       <Image
         src="/images/hero-banner.webp"
         alt="Оренда автомобілів у Львові"
         fill
         priority
         quality={90}
-        className="object-cover"
+        className="object-cover hidden md:block"
         sizes="100vw"
       />
       
@@ -30,7 +41,7 @@ export default function HeroSection() {
       ></div>
       
       {/* Content */}
-      <div className="relative z-10 text-left md:text-center w-full max-w-[290px] md:max-w-none flex flex-col items-start md:items-center gap-[308px] md:gap-[193px]">
+      <div className="relative z-10 text-left md:text-center w-full max-w-[290px] md:max-w-none flex flex-col items-start md:items-center gap-[248px] md:gap-[193px] ">
         <h1 
           className="text-white text-[30px] leading-[100%] md:text-[70px] lg:text-[80px] md:leading-[100%] lg:leading-[80px] font-black uppercase whitespace-pre-line"
           style={{ 
@@ -45,7 +56,7 @@ export default function HeroSection() {
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-[290px] md:w-[469px] lg:w-auto h-[42px] md:h-16 lg:h-auto px-5 md:px-[50px] lg:px-[50px] py-[14px] md:py-5 rounded-[8px] md:rounded-[10px] text-white text-xs md:text-2xl font-bold uppercase transition-all duration-300 hover:scale-110 hover:shadow-[0_0_80px_rgba(255,68,0,0.6),0_0_30px_rgba(217,19,0,0.8)] relative overflow-hidden group flex items-center justify-center gap-[10px]"
+          className="w-[290px] md:w-[469px] lg:w-auto h-[42px] md:h-16 lg:h-auto px-5 md:px-[50px] lg:px-[50px] py-[14px] md:py-5 rounded-[8px] md:rounded-[10px] text-white text-xs md:text-2xl font-bold uppercase transition-all duration-300 hover:scale-110 hover:shadow-[0_0_80px_rgba(255,68,0,0.6),0_0_30px_rgba(217,19,0,0.8)] relative overflow-hidden group flex items-center justify-center gap-[10px] "
           style={{ 
             fontFamily: 'var(--font-unbounded)',
             background: 'radial-gradient(circle, #FF4400 55%, #D91300 100%)',

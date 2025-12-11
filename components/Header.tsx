@@ -89,8 +89,8 @@ export default function Header() {
               aria-expanded={isCurrencyOpen}
             >
               <span className="text-white text-sm xl:text-base 2xl:text-lg">{currencySymbol}</span>
-              <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
+              <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transition-transform duration-300 ${isCurrencyOpen ? 'rotate-180' : ''}`}>
+                <path d="M4.5 18L0 13L9 13L4.5 18Z" fill={isCurrencyOpen ? '#FF4400' : 'white'}/>
               </svg>
             </button>
             {isCurrencyOpen && (
@@ -125,8 +125,8 @@ export default function Header() {
               aria-expanded={isLanguageOpen}
             >
               <span className="text-white text-sm xl:text-base 2xl:text-lg">{languages.find(l => l.code === currentLanguage)?.label}</span>
-              <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.5 18L0 13L9 13L4.5 18Z" fill="white"/>
+              <svg width="9" height="26" viewBox="0 0 9 26" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transition-transform duration-300 ${isLanguageOpen ? 'rotate-180' : ''}`}>
+                <path d="M4.5 18L0 13L9 13L4.5 18Z" fill={isLanguageOpen ? '#FF4400' : 'white'}/>
               </svg>
             </button>
             {isLanguageOpen && (

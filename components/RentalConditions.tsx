@@ -33,7 +33,7 @@ export default function RentalConditions() {
     <section className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
       {/* Заголовок */}
       <h2 
-        className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] font-black text-left md:text-center mb-[30px] md:mb-20 uppercase"
+        className="text-[#070707] text-[30px] text-center max-w-[260px] md:max-w-full mx-auto md:text-[40px] lg:text-[60px] leading-[120%] font-black  md:text-center mb-[30px] md:mb-20 uppercase"
         style={{ fontFamily: 'var(--font-unbounded)' }}
       >
         {t('rentalConditionsPageTitle')}
@@ -89,7 +89,7 @@ export default function RentalConditions() {
 
               {/* Контент під кнопкою */}
               {activeAccordion === item.id && (
-                <div className="w-full flex flex-col gap-[10px]">
+                <div className="w-full flex flex-col gap-[10px] px-[10px] md:px-[15px]">
                   {item.content.map((block, index) => (
                     <div
                       key={index}

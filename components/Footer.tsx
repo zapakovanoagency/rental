@@ -167,6 +167,20 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Logo and Description - at top on mobile/tablet */}
+        <div className="lg:hidden flex flex-col md:flex-row md:items-center gap-[15px] md:gap-[50px]">
+          {/* Логотип */}
+          <img src="/images/logo-footer.svg" alt="RentalLviv" className="w-[205px] md:w-[309px] h-auto" />
+          
+          {/* Текст */}
+          <p 
+            className="text-white text-[10px] md:text-base leading-[120%] uppercase"
+            style={{ fontFamily: 'var(--font-nunito-sans)' }}
+          >
+            {t('footerDescription')}
+          </p>
+        </div>
+
         {/* Контакти - Mobile/Tablet */}
         <div className="lg:hidden flex flex-col gap-[25px] md:gap-[50px] w-full">
           {/* Phone and Email - Row on tablet */}
@@ -295,20 +309,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Logo and Description - at bottom on mobile/tablet */}
-        <div className="lg:hidden flex flex-col md:flex-row md:items-center gap-[15px] md:gap-[50px]">
-          {/* Логотип */}
-          <img src="/images/logo-footer.svg" alt="RentalLviv" className="w-[205px] md:w-[309px] h-auto" />
-          
-          {/* Текст */}
-          <p 
-            className="text-white text-[10px] md:text-base leading-[120%]"
-            style={{ fontFamily: 'var(--font-nunito-sans)' }}
-          >
-            {t('footerDescription')}
-          </p>
         </div>
 
         {/* Copyright - only on mobile/tablet */}
