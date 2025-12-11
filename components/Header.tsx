@@ -156,7 +156,7 @@ export default function Header() {
               href="https://t.me/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-[35px] h-[35px] flex items-center justify-center transition-transform hover:scale-110 bg-[#1E1D1E] p-2 rounded-[10px]"
+              className="w-[35px] h-[35px] flex items-center justify-center transition-all hover:scale-110 hover:bg-[#FF4400] bg-[#1E1D1E] p-2 rounded-[10px]"
               aria-label="Telegram - зв'язатись з нами"
             >
               <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[20px] h-[20px]" />
@@ -167,7 +167,7 @@ export default function Header() {
               href="https://wa.me/yourphonenumber" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-[35px] h-[35px] flex items-center justify-center transition-transform hover:scale-110 bg-[#1E1D1E] p-2 rounded-[10px]"
+              className="w-[35px] h-[35px] flex items-center justify-center transition-all hover:scale-110 hover:bg-[#FF4400] bg-[#1E1D1E] p-2 rounded-[10px]"
               aria-label="WhatsApp - зв'язатись з нами"
             >
               <img src="/images/socials/whatsapp-icon.svg" alt="WhatsApp" className="w-[20px] h-[20px]" />
@@ -178,7 +178,7 @@ export default function Header() {
               href="https://instagram.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-[35px] h-[35px] flex items-center justify-center transition-transform hover:scale-110 bg-[#1E1D1E] rounded-[10px] p-2 rounded-[10px]"
+              className="w-[35px] h-[35px] flex items-center justify-center transition-all hover:scale-110 hover:bg-[#FF4400] bg-[#1E1D1E] rounded-[10px] p-2"
               aria-label="Instagram - наш профіль"
             >
               <img src="/images/socials/insta-icon.svg" alt="Instagram" className="w-[20px] h-[20px]" />
