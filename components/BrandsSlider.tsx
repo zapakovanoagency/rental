@@ -84,7 +84,7 @@ export default function BrandsSlider() {
         {/* Ліва стрілка */}
         <button
           onClick={handlePrev}
-          className="flex-shrink-0 hover:opacity-70 transition-opacity"
+          className="flex-shrink-0 transition-all cursor-pointer group"
           aria-label="Previous brands"
         >
           <svg 
@@ -95,7 +95,7 @@ export default function BrandsSlider() {
             xmlns="http://www.w3.org/2000/svg"
             className="rotate-[-90deg] md:w-[27px] md:h-[15px]"
           >
-            <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707"/>
+            <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
         </button>
 
@@ -115,7 +115,7 @@ export default function BrandsSlider() {
             {infiniteBrands.map((brand, index) => (
               <div
                 key={`${brand.id}-${index}`}
-                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px] bg-white border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
+                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px]  border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
               >
                 <div className="w-[50px] h-[50px] md:w-[65px] md:h-[65px] lg:w-[85px] lg:h-[85px] relative flex items-center justify-center">
                   <Image
@@ -134,7 +134,7 @@ export default function BrandsSlider() {
         {/* Права стрілка */}
         <button
           onClick={handleNext}
-          className="flex-shrink-0 hover:opacity-70 transition-opacity"
+          className="flex-shrink-0 transition-all cursor-pointer group"
           aria-label="Next brands"
         >
           <svg 
@@ -145,7 +145,7 @@ export default function BrandsSlider() {
             xmlns="http://www.w3.org/2000/svg"
             className="rotate-90 md:w-[27px] md:h-[15px]"
           >
-            <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707"/>
+            <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
         </button>
       </div>

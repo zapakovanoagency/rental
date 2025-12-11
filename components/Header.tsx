@@ -94,7 +94,7 @@ export default function Header() {
               </svg>
             </button>
             {isCurrencyOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[15px] lg:rounded-[20px] p-2 lg:p-3 xl:p-4 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[60px] lg:min-w-[60px] xl:min-w-[60px] z-[60]">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1a1a1a] rounded-[15px] lg:rounded-[20px] p-2 lg:p-3 xl:p-2 shadow-[0_0_50px_rgba(0,0,0,0.8)] min-w-[60px] lg:min-w-[60px] xl:min-w-[60px] z-[60]">
                 {currencies.map((curr) => (
                   <button
                     key={curr}
@@ -102,7 +102,7 @@ export default function Header() {
                       setCurrency(curr);
                       setIsCurrencyOpen(false);
                     }}
-                    className={`w-full px-2 lg:px-2 xl:px-2 py-1.5 lg:py-1 xl:py-1 text-lg lg:text-lg xl:text-lg text-center rounded-[8px] lg:rounded-[10px] transition-all ${
+                    className={`w-full px-2 lg:px-1 xl:px-1 py-1.5 lg:py-1 xl:py-1 text-lg lg:text-lg xl:text-lg text-center rounded-[8px] lg:rounded-[10px] transition-all ${
                       currentCurrency === curr ? 'text-white bg-[#2a2a2a]' : 'text-gray-500 hover:text-white hover:bg-[#2a2a2a]'
                     }`}
                   >
@@ -150,19 +150,16 @@ export default function Header() {
           </div>
 
           {/* Messengers */}
-          <div className="flex items-center gap-[5px]">
+          <div className="flex items-center gap-[5px] ">
             {/* Telegram */}
             <a 
               href="https://t.me/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="w-[35px] h-[35px] flex items-center justify-center transition-transform hover:scale-110 bg-[#1E1D1E] p-2 rounded-[10px]"
               aria-label="Telegram - зв'язатись з нами"
             >
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="15" cy="15" r="15" fill="white"/>
-                <path d="M21.5 9.5L8.5 15L12 17L19 12L14 18.5L19.5 21L21.5 9.5Z" fill="#070707"/>
-              </svg>
+              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[20px] h-[20px]" />
             </a>
 
             {/* WhatsApp */}
@@ -170,13 +167,10 @@ export default function Header() {
               href="https://wa.me/yourphonenumber" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="w-[35px] h-[35px] flex items-center justify-center transition-transform hover:scale-110 bg-[#1E1D1E] p-2 rounded-[10px]"
               aria-label="WhatsApp - зв'язатись з нами"
             >
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="15" cy="15" r="15" fill="white"/>
-                <path d="M20.5 9.5C19 8 17 7 14.5 7C10 7 6.5 10.5 6.5 15C6.5 16.5 7 18 7.5 19L6.5 23L10.5 22C11.5 22.5 13 23 14.5 23C19 23 22.5 19.5 22.5 15C22.5 12.5 21.5 10.5 20.5 9.5ZM18.5 18C18 18.5 17.5 18.5 16.5 18.5C16 18.5 14.5 18 13 17C11 15.5 10 13.5 9.5 13C9.5 12.5 9.5 11.5 10 11C10.5 10.5 11 10.5 11.5 10.5C11.5 10.5 12 11.5 12.5 12.5C12.5 13 12.5 13 12 13.5C12 13.5 12 14 12.5 14.5C13.5 15.5 14.5 16 15 16.5C15.5 17 16 16.5 16.5 16.5C17 16 17.5 15.5 17.5 15.5C18 15.5 18.5 16 18.5 16.5C18.5 17 18.5 17.5 18.5 18Z" fill="#070707"/>
-              </svg>
+              <img src="/images/socials/whatsapp-icon.svg" alt="WhatsApp" className="w-[20px] h-[20px]" />
             </a>
 
             {/* Instagram */}
@@ -184,15 +178,10 @@ export default function Header() {
               href="https://instagram.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-[30px] h-[30px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="w-[35px] h-[35px] flex items-center justify-center transition-transform hover:scale-110 bg-[#1E1D1E] rounded-[10px] p-2 rounded-[10px]"
               aria-label="Instagram - наш профіль"
             >
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="15" cy="15" r="15" fill="white"/>
-                <rect x="8" y="8" width="14" height="14" rx="3" stroke="#070707" strokeWidth="1.5" fill="none"/>
-                <circle cx="15" cy="15" r="3.5" stroke="#070707" strokeWidth="1.5" fill="none"/>
-                <circle cx="19.5" cy="10.5" r="1" fill="#070707"/>
-              </svg>
+              <img src="/images/socials/insta-icon.svg" alt="Instagram" className="w-[20px] h-[20px]" />
             </a>
           </div>
 

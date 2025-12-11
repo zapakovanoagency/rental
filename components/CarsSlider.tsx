@@ -80,7 +80,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
           className="border-2 border-[#070707] rounded-[10px] px-[30px] md:px-[50px] py-4 md:py-5 hover:bg-[#070707] hover:text-white transition-colors"
         >
           <span 
-            className="text-[16px] md:text-2xl font-bold leading-none"
+            className="text-[16px] md:text-2xl font-bold leading-none uppercase"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             {t('viewAllCars')}
@@ -116,14 +116,11 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
                 onClick={() => goToPage(page)}
                 className={`w-14 h-14 rounded-[10px] font-bold text-xl transition-all ${
                   currentPage === page
-                    ? 'text-white shadow-lg scale-110'
+                    ? 'bg-[#070707] text-white shadow-lg scale-110'
                     : 'border-2 border-[#070707] text-[#070707] hover:bg-[#070707] hover:text-white'
                 }`}
                 style={{
                   fontFamily: 'var(--font-unbounded)',
-                  ...(currentPage === page && {
-                    background: 'radial-gradient(circle, #FF4400 55%, #D91300 100%)',
-                  }),
                 }}
               >
                 {page}

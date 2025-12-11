@@ -19,8 +19,15 @@ export default function HeroSection() {
         className="object-cover"
         sizes="100vw"
       />
-      {/* Dark overlay - закоментовано */}
-      {/* <div className="absolute inset-0 bg-black/40"></div> */}
+      
+      {/* Grain effect overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.15] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+        }}
+      ></div>
       
       {/* Content */}
       <div className="relative z-10 text-left md:text-center w-full max-w-[290px] md:max-w-none flex flex-col items-start md:items-center gap-[308px] md:gap-[193px]">
