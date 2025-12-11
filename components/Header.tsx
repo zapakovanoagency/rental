@@ -12,7 +12,7 @@ export default function Header() {
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
-  const currencies: Currency[] = ['USD', 'EUR', 'UAH'];
+  const currencies: Currency[] = ['USD', 'EUR'];
   const languages = [
     { code: 'uk', label: 'UA' },
     { code: 'en', label: 'EN' }

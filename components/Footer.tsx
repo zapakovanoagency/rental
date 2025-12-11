@@ -7,7 +7,7 @@ export default function Footer() {
   const { t } = useLanguage();
   
   return (
-    <footer className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[30px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]">
+    <footer id="contacts" className="bg-[#070707] px-[15px] md:px-[50px] lg:px-[30px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]">
       <div className="flex flex-col gap-[40px] md:gap-[80px]">
 
         {/* Desktop Layout */}

@@ -1,22 +1,21 @@
 export const currencies = {
-  UAH: '₴',
   USD: '$',
   EUR: '€',
 } as const;
 
 export type Currency = keyof typeof currencies;
 
-export const defaultCurrency: Currency = 'UAH';
+export const defaultCurrency: Currency = 'EUR';
 
-// Курси відносно гривні (UAH)
-let exchangeRates: Record<Currency, number> = {
+// Курси відносно гривні (UAH) - для внутрішніх розрахунків
+let exchangeRates: Record<string, number> = {
   UAH: 1,
   USD: 41.50, // 1 USD = 41.50 UAH
   EUR: 45.00, // 1 EUR = 45.00 UAH
 };
 
 // Кеш курсів з таймстемпом
-let ratesCache: { rates: Record<Currency, number>; timestamp: number } | null = null;
+let ratesCache: { rates: Record<string, number>; timestamp: number } | null = null;
 const CACHE_DURATION = 60 * 60 * 1000; // 1 година
 
 // Функція для отримання реальних курсів з API

@@ -14,7 +14,7 @@ export default function MobileHeader() {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isSocialOpen, setIsSocialOpen] = useState(false);
 
-  const currencies: Currency[] = ['USD', 'EUR', 'UAH'];
+  const currencies: Currency[] = ['USD', 'EUR'];
   const languages = [
     { code: 'uk', label: 'UA' },
     { code: 'en', label: 'EN' }
@@ -282,7 +282,7 @@ export default function MobileHeader() {
         >
           <nav className="bg-[#070707] rounded-[10px] px-[15px] py-[15px] flex flex-col gap-[15px] shadow-[0_0_30px_rgba(0,0,0,1)] ">
             <Link 
-              href="#autopark" 
+              href="/#autopark" 
               onClick={toggleMenu}
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -290,7 +290,7 @@ export default function MobileHeader() {
               {t('autopark')}
             </Link>
             <Link 
-              href="#rental-conditions" 
+              href="/#rental-conditions" 
               onClick={toggleMenu}
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -298,7 +298,7 @@ export default function MobileHeader() {
               {t('rentalConditions')}
             </Link>
             <Link 
-              href="#services" 
+              href="/#services" 
               onClick={toggleMenu}
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -306,7 +306,7 @@ export default function MobileHeader() {
               {t('services')}
             </Link>
             <Link 
-              href="#contacts" 
+              href="/#contacts" 
               onClick={toggleMenu}
               className="text-white text-sm leading-none hover:text-[#FF4400] transition-colors"
               style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -329,7 +329,7 @@ export default function MobileHeader() {
             {/* Menu Items */}
             <nav className="bg-[#070707] rounded-[10px] px-[15px] py-[15px] flex flex-col items-center gap-[15px] w-full max-w-[295px] mb-[30px]">
               <Link 
-                href="#autopark" 
+                href="/#autopark" 
                 onClick={toggleMenu}
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -337,7 +337,7 @@ export default function MobileHeader() {
                 {t('autopark')}
               </Link>
               <Link 
-                href="#rental-conditions" 
+                href="/#rental-conditions" 
                 onClick={toggleMenu}
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -345,7 +345,7 @@ export default function MobileHeader() {
                 {t('rentalConditions')}
               </Link>
               <Link 
-                href="#services" 
+                href="/#services" 
                 onClick={toggleMenu}
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -353,7 +353,7 @@ export default function MobileHeader() {
                 {t('services')}
               </Link>
               <Link 
-                href="#contacts" 
+                href="/#contacts" 
                 onClick={toggleMenu}
                 className="text-white text-[12px] leading-none text-center"
                 style={{ fontFamily: 'var(--font-nunito-sans)' }}

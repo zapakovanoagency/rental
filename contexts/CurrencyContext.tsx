@@ -17,8 +17,12 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Завантажуємо збережену валюту
     const savedCurrency = localStorage.getItem('currency') as Currency;
-    if (savedCurrency && (savedCurrency === 'UAH' || savedCurrency === 'USD' || savedCurrency === 'EUR')) {
+    if (savedCurrency && (savedCurrency === 'USD' || savedCurrency === 'EUR')) {
       setCurrencyState(savedCurrency);
+    } else {
+      // Якщо немає збереженої валюти або вона невалідна, встановлюємо EUR
+      setCurrencyState('EUR');
+      localStorage.setItem('currency', 'EUR');
     }
 
     // Завантажуємо актуальні курси валют
