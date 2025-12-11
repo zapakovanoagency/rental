@@ -81,9 +81,5 @@ export const formatPrice = (amount: number, currency: Currency): string => {
   const rounded = Math.round(amount);
   const symbol = currencies[currency];
   
-  if (currency === 'UAH') {
-    return `${rounded} ${symbol}`;
-  }
-  
   return `${symbol}${rounded}`;
 };
