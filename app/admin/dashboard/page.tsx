@@ -7,10 +7,12 @@ import Image from 'next/image';
 interface Car {
   _id: string;
   name: string;
+  nameEn?: string;
   image: string;
   tags: string[];
+  tagsEn?: string[];
   deposit: string;
-  pricing: { period: string; price: string }[];
+  pricing: { period: string; periodEn?: string; price: string }[];
   isActive: boolean;
 }
 
@@ -183,8 +185,10 @@ export default function AdminDashboard() {
 function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => void; onSave: () => void }) {
   const [formData, setFormData] = useState({
     name: car?.name || '',
+    nameEn: car?.nameEn || '',
     image: car?.image || '',
     tags: car?.tags?.join(', ') || '',
+    tagsEn: car?.tagsEn?.join(', ') || '',
     deposit: car?.deposit || '',
     pricing: car?.pricing || [
       { period: '1-3 дні', price: '' },
@@ -228,8 +232,10 @@ function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => voi
 
     const carData = {
       name: formData.name,
+      nameEn: formData.nameEn,
       image: formData.image,
       tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean),
+      tagsEn: formData.tagsEn.split(',').map(tag => tag.trim()).filter(Boolean),
       deposit: formData.deposit,
       pricing: formData.pricing,
     };
@@ -261,7 +267,7 @@ function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => voi
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
-      <div className="bg-white rounded-[10px] p-8 max-w-2xl w-full my-8">
+      <div className="bg-white rounded-[10px] p-8 max-w-2xl w-full my-8 max-h-[90vh] overflow-y-auto">
         <h2 
           className="text-3xl font-black mb-6 uppercase"
           style={{ fontFamily: 'var(--font-unbounded)' }}
@@ -278,6 +284,17 @@ function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => voi
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
               required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold mb-2">Назва англійською (опціонально)</label>
+            <input
+              type="text"
+              value={formData.nameEn}
+              onChange={(e) => setFormData({ ...formData, nameEn: e.target.value })}
+              placeholder="Car name in English"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
             />
           </div>
 
@@ -310,33 +327,57 @@ function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => voi
           </div>
 
           <div>
-            <label className="block text-sm font-bold mb-2">Застава</label>
+            <label className="block text-sm font-bold mb-2">Теги англійською (опціонально)</label>
+            <input
+              type="text"
+              value={formData.tagsEn}
+              onChange={(e) => setFormData({ ...formData, tagsEn: e.target.value })}
+              placeholder="Premium, Automatic, Diesel"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold mb-2">Застава (в євро)</label>
             <input
               type="text"
               value={formData.deposit}
               onChange={(e) => setFormData({ ...formData, deposit: e.target.value })}
-              placeholder="2 000 $"
+              placeholder="1 500 €"
               className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold mb-2">Ціноутворення</label>
+            <label className="block text-sm font-bold mb-2">Ціноутворення (в євро)</label>
             {formData.pricing.map((p, index) => (
-              <div key={index} className="flex gap-4 mb-2">
-                <input
-                  type="text"
-                  value={p.period}
-                  onChange={(e) => {
-                    const newPricing = [...formData.pricing];
-                    newPricing[index].period = e.target.value;
-                    setFormData({ ...formData, pricing: newPricing });
-                  }}
-                  placeholder="Період"
-                  className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-                  required
-                />
+              <div key={index} className="mb-4 p-3 border border-gray-200 rounded-[10px]">
+                <div className="flex gap-2 mb-2">
+                  <input
+                    type="text"
+                    value={p.period}
+                    onChange={(e) => {
+                      const newPricing = [...formData.pricing];
+                      newPricing[index].period = e.target.value;
+                      setFormData({ ...formData, pricing: newPricing });
+                    }}
+                    placeholder="Період українською"
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
+                    required
+                  />
+                  <input
+                    type="text"
+                    value={p.periodEn || ''}
+                    onChange={(e) => {
+                      const newPricing = [...formData.pricing];
+                      newPricing[index].periodEn = e.target.value;
+                      setFormData({ ...formData, pricing: newPricing });
+                    }}
+                    placeholder="Period in English"
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
+                  />
+                </div>
                 <input
                   type="text"
                   value={p.price}
@@ -345,12 +386,12 @@ function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => voi
                     newPricing[index].price = e.target.value;
                     setFormData({ ...formData, pricing: newPricing });
                   }}
-                  placeholder="Ціна"
-                  className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-                  required
+                  placeholder={index === formData.pricing.length - 1 ? "договірна" : "Ціна"}
+                  className="w-full px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
                 />
               </div>
             ))}
+            <p className="text-xs text-gray-500 mt-2">Для останнього періоду залиште ціну пустою, щоб показати "договірна"</p>
           </div>
 
           <div className="flex gap-4 pt-4">

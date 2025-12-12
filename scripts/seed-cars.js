@@ -23,96 +23,96 @@ const testCars = [
     name: 'Mercedes-Benz E 220 d 4MATIC',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Преміум', 'Автомат', 'Дизель', 'Седан', '5 місць', 'Повний привід', 'Двигун 2,9 л'],
-    deposit: '2 500 $',
+    deposit: '2 500 €',
     pricing: [
-      { period: '1-3 дні', price: '200 $/доба' },
-      { period: '4-9 днів', price: '180 $/доба' },
-      { period: '10-29 днів', price: '170 $/доба' },
-      { period: '30 та більше днів', price: '150 $/доба' }
+      { period: '1-3 дні', price: '180 €' },
+      { period: '4-9 днів', price: '160 €' },
+      { period: '10-29 днів', price: '150 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'Porsche Cayenne',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Преміум', 'Автомат', 'Бензин', 'Позашляховик', '5 місць', 'Повний привід', 'Двигун 3,0 л'],
-    deposit: '2 000 $',
+    deposit: '2 000 €',
     pricing: [
-      { period: '1-3 дні', price: '220 $/доба' },
-      { period: '4-9 днів', price: '200 $/доба' },
-      { period: '10-29 днів', price: '170 $/доба' },
-      { period: '30 та більше днів', price: '130 $/доба' }
+      { period: '1-3 дні', price: '200 €' },
+      { period: '4-9 днів', price: '180 €' },
+      { period: '10-29 днів', price: '160 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'RAM 1500',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Преміум', 'Автомат', 'Бензин/Газ', 'Пікап', '5 місць', 'Повний привід', 'Двигун 5,7 л'],
-    deposit: '3 000 $',
+    deposit: '3 000 €',
     pricing: [
-      { period: '1-3 дні', price: '250 $/доба' },
-      { period: '4-9 днів', price: '220 $/доба' },
-      { period: '10-29 днів', price: '200 $/доба' },
-      { period: '30 та більше днів', price: '160 $/доба' }
+      { period: '1-3 дні', price: '220 €' },
+      { period: '4-9 днів', price: '200 €' },
+      { period: '10-29 днів', price: '180 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'Toyota Land Cruiser Prado 250',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Преміум', 'Автомат', 'Дизель', 'Позашляховик', '5 місць', 'Повний привід', 'Двигун 2,8 л'],
-    deposit: '2 000 $',
+    deposit: '2 000 €',
     pricing: [
-      { period: '1-3 дні', price: '250 $/доба' },
-      { period: '4-9 днів', price: '200 $/доба' },
-      { period: '10-29 днів', price: '170 $/доба' },
-      { period: '30 та більше днів', price: '150 $/доба' }
+      { period: '1-3 дні', price: '220 €' },
+      { period: '4-9 днів', price: '180 €' },
+      { period: '10-29 днів', price: '150 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'BMW X5',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Преміум', 'Автомат', 'Бензин', 'Позашляховик', '5 місць', 'Повний привід', 'Двигун 3,0 л'],
-    deposit: '2 200 $',
+    deposit: '2 200 €',
     pricing: [
-      { period: '1-3 дні', price: '210 $/доба' },
-      { period: '4-9 днів', price: '190 $/доба' },
-      { period: '10-29 днів', price: '175 $/доба' },
-      { period: '30 та більше днів', price: '155 $/доба' }
+      { period: '1-3 дні', price: '190 €' },
+      { period: '4-9 днів', price: '170 €' },
+      { period: '10-29 днів', price: '160 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'Audi Q7',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Преміум', 'Автомат', 'Дизель', 'Позашляховик', '7 місць', 'Повний привід', 'Двигун 3,0 л'],
-    deposit: '2 300 $',
+    deposit: '2 300 €',
     pricing: [
-      { period: '1-3 дні', price: '230 $/доба' },
-      { period: '4-9 днів', price: '210 $/доба' },
-      { period: '10-29 днів', price: '190 $/доба' },
-      { period: '30 та більше днів', price: '160 $/доба' }
+      { period: '1-3 дні', price: '210 €' },
+      { period: '4-9 днів', price: '190 €' },
+      { period: '10-29 днів', price: '170 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'Volkswagen Passat',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Бізнес', 'Автомат', 'Дизель', 'Седан', '5 місць', 'Двигун 2,0 л'],
-    deposit: '1 500 $',
+    deposit: '1 500 €',
     pricing: [
-      { period: '1-3 дні', price: '120 $/доба' },
-      { period: '4-9 днів', price: '100 $/доба' },
-      { period: '10-29 днів', price: '90 $/доба' },
-      { period: '30 та більше днів', price: '80 $/доба' }
+      { period: '1-3 дні', price: '110 €' },
+      { period: '4-9 днів', price: '95 €' },
+      { period: '10-29 днів', price: '85 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   },
   {
     name: 'Tesla Model 3',
     image: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
     tags: ['Електро', 'Автомат', 'Седан', '5 місць', 'Автопілот'],
-    deposit: '2 000 $',
+    deposit: '2 000 €',
     pricing: [
-      { period: '1-3 дні', price: '180 $/доба' },
-      { period: '4-9 днів', price: '160 $/доба' },
-      { period: '10-29 днів', price: '140 $/доба' },
-      { period: '30 та більше днів', price: '120 $/доба' }
+      { period: '1-3 дні', price: '160 €' },
+      { period: '4-9 днів', price: '145 €' },
+      { period: '10-29 днів', price: '130 €' },
+      { period: '30 та більше днів', price: '' }
     ]
   }
 ];

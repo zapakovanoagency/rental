@@ -2,13 +2,17 @@ import mongoose, { Document, Model, Schema } from 'mongoose';
 
 export interface IPricing {
   period: string;
+  periodEn?: string;
   price: string;
+  isNegotiable?: boolean;
 }
 
 export interface ICar extends Document {
   name: string;
+  nameEn?: string; // English translation
   image: string;
   tags: string[];
+  tagsEn?: string[]; // English translation
   deposit: string;
   pricing: IPricing[];
   isActive: boolean;
@@ -18,6 +22,7 @@ export interface ICar extends Document {
 
 const PricingSchema = new Schema<IPricing>({
   period: { type: String, required: true },
+  periodEn: { type: String },
   price: { type: String, required: true }
 }, { _id: false });
 
@@ -27,11 +32,19 @@ const CarSchema = new Schema<ICar>({
     required: [true, 'Назва автомобіля обов\'язкова'],
     trim: true
   },
+  nameEn: { 
+    type: String, 
+    trim: true
+  },
   image: { 
     type: String, 
     required: [true, 'Зображення обов\'язкове']
   },
   tags: [{ 
+    type: String,
+    trim: true
+  }],
+  tagsEn: [{ 
     type: String,
     trim: true
   }],

@@ -7,8 +7,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface Car {
   _id: string;
   name: string;
+  nameEn?: string;
   image: string;
   tags: string[];
+  tagsEn?: string[];
   deposit: string;
   pricing: { period: string; price: string }[];
 }

@@ -8,16 +8,19 @@ import { convertCurrency, formatPrice } from '@/lib/currency';
 
 interface CarCardProps {
   name: string;
+  nameEn?: string;
   image: string;
   tags: string[];
+  tagsEn?: string[];
   deposit: string;
   pricing: {
     period: string;
+    periodEn?: string;
     price: string;
   }[];
 }
 
-// Функція для парсингу ціни з тексту (ціни зберігаються в USD)
+// Функція для парсингу ціни з тексту (ціни зберігаються в EUR)
 const parsePrice = (priceStr: string): number => {
   const match = priceStr.match(/(\d+(?:[\s,]\d+)?)/);
   if (!match) return 0;
@@ -25,22 +28,33 @@ const parsePrice = (priceStr: string): number => {
   return parseInt(cleanedStr);
 };
 
-export default function CarCard({ name, image, tags, deposit, pricing }: CarCardProps) {
-  const { t } = useLanguage();
+export default function CarCard({ name, nameEn, image, tags, tagsEn, deposit, pricing }: CarCardProps) {
+  const { t, language } = useLanguage();
   const { currency } = useCurrency();
   
-  // Конвертуємо ціни з USD в вибрану валюту
+  // Використовуємо англійські переводи якщо вони є і мова встановлена на англійську
+  const displayName = language === 'en' && nameEn ? nameEn : name;
+  const displayTags = language === 'en' && tagsEn && tagsEn.length > 0 ? tagsEn : tags;
+  
+  // Конвертуємо ціни з EUR в вибрану валюту
   const convertedPricing = pricing.map(item => {
-    const priceInUSD = parsePrice(item.price);
-    const convertedPrice = convertCurrency(priceInUSD, 'USD', currency);
+    const priceInEUR = parsePrice(item.price);
+    // Якщо ціна 0 або пуста - показуємо "договірна"
+    if (!item.price || priceInEUR === 0) {
+      return {
+        period: language === 'en' && item.periodEn ? item.periodEn : item.period,
+        price: 'договірна'
+      };
+    }
+    const convertedPrice = convertCurrency(priceInEUR, 'EUR', currency);
     return {
-      period: item.period,
+      period: language === 'en' && item.periodEn ? item.periodEn : item.period,
       price: formatPrice(convertedPrice, currency)
     };
   });
 
-  const depositInUSD = parsePrice(deposit);
-  const convertedDeposit = formatPrice(convertCurrency(depositInUSD, 'USD', currency), currency);
+  const depositInEUR = parsePrice(deposit);
+  const convertedDeposit = formatPrice(convertCurrency(depositInEUR, 'EUR', currency), currency);
   
   return (
     <div className="bg-[#98A2A6] rounded-[8px] md:rounded-[10px] flex flex-col md:flex-row gap-[25px] md:gap-[15px] lg:gap-[20px] xl:gap-[30px] 2xl:gap-[50px] p-3 md:pl-3 md:pr-[20px] lg:pl-5 lg:pr-[20px] xl:pr-[20px] 2xl:pr-[30px] md:py-3 lg:py-4 xl:py-5 shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)] h-full">
@@ -81,12 +95,12 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
           className="text-[#070707] text-[18px] md:text-sm lg:text-base xl:text-lg 2xl:text-2xl font-black leading-[120%]"
           style={{ fontFamily: 'var(--font-nunito-sans)' }}
         >
-          {name}
+          {displayName}
         </h3>
 
         {/* Теги */}
         <div className="flex gap-[3px] md:gap-[4px] lg:gap-[5px] flex-wrap">
-          {tags.map((tag, index) => (
+          {displayTags.map((tag, index) => (
             <span
               key={index}
               className="bg-[#070707] text-white text-xs md:text-xs lg:text-sm leading-none px-[8px] md:px-[10px] py-[4px] md:py-[5px] rounded-[8px] md:rounded-[10px]"
@@ -115,7 +129,7 @@ export default function CarCard({ name, image, tags, deposit, pricing }: CarCard
                 {item.period}
               </span>
               <span className="text-[#070707] text-xs md:text-[10px] lg:text-xs xl:text-sm font-bold leading-none" style={{ fontFamily: 'var(--font-nunito-sans)' }}>
-                {item.price}/доба
+                {item.price === 'договірна' ? t('negotiable') : `${item.price}/${t('perDayShort')}`}
               </span>
             </div>
           ))}

@@ -77,6 +77,8 @@ export const translations = {
     days_2_4: 'дні',
     days_5_plus: 'днів',
     perDay: 'за день',
+    negotiable: 'договірна',
+    perDayShort: 'доба',
   },
   en: {
     // Header
@@ -156,6 +158,8 @@ export const translations = {
     days_2_4: 'days',
     days_5_plus: 'days',
     perDay: 'per day',
+    negotiable: 'negotiable',
+    perDayShort: 'per day',
   },
 } as const;
 
