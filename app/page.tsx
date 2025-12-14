@@ -7,12 +7,19 @@ import HeroSection from '@/components/HeroSection';
 import connectDB from '@/lib/mongodb';
 import Car from '@/models/Car';
 
-export const revalidate = 60; // Перевалідація кожні 60 секунд
+export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Вимкнути кешування для динамічних даних
 
 async function getCars() {
   try {
     await connectDB();
-    const cars = await Car.find({ isActive: true }).sort({ createdAt: -1 }).lean();
+    const cars = await Car.find({ isActive: true }).sort({ order: 1, createdAt: -1 }).lean();
+    
+    console.log('Головна сторінка - завантажено', cars.length, 'автомобілів:');
+    cars.slice(0, 5).forEach(car => {
+      console.log(`  ${car.name} - order: ${car.order}`);
+    });
+    
     // Конвертуємо ObjectId в string
     return cars.map(car => ({
       ...car,

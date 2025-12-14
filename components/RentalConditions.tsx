@@ -61,7 +61,7 @@ export default function RentalConditions() {
                 }
               >
                 <span
-                  className={`text-[16px] md:text-2xl font-black leading-[120%] ${
+                  className={`text-[18px] md:text-2xl font-black leading-[120%] ${
                     activeAccordion === item.id ? 'text-white' : 'text-[#070707] group-hover:text-[#FF4400]'
                   }`}
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}

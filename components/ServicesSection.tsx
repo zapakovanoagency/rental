@@ -18,7 +18,7 @@ export default function ServicesSection() {
   const services = getServices(language);
   
   return (
-    <section id="services" className="bg-[#98A2A6] px-[15px] md:px-[100px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
+    <section id="services" className="bg-[#98A2A6] px-[15px] md:px-[50px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
       {/* Заголовок */}
       <h2 
         className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] leading-[120%] font-black text-center mb-[30px] md:mb-20 uppercase"
@@ -68,7 +68,7 @@ export default function ServicesSection() {
         >
           <img src="/images/tg-btn.svg" alt="" className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]" />
           <span 
-            className="text-white text-[14px] md:text-2xl font-bold leading-[100%] text-center uppercase"
+            className="text-white text-[12px] md:text-2xl font-bold leading-[100%] text-center uppercase"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             {t('chooseCar')}

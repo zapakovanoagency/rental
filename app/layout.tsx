@@ -4,19 +4,20 @@ import "./globals.css";
 import Header from "@/components/Header";
 import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
+import FloatingPhoneButton from "@/components/FloatingPhoneButton";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "600", "700", "800", "900"],
 });
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["latin", "cyrillic"],
-  weight: ["700"],
+  weight: ["700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -100,6 +101,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <FloatingPhoneButton />
           </CurrencyProvider>
         </LanguageProvider>
       </body>

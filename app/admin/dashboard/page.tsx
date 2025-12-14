@@ -3,6 +3,25 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import CarForm from '@/components/admin/CarForm';
 
 interface Car {
   _id: string;
@@ -14,6 +33,7 @@ interface Car {
   deposit: string;
   pricing: { period: string; periodEn?: string; price: string }[];
   isActive: boolean;
+  order?: number;
 }
 
 export default function AdminDashboard() {
@@ -23,21 +43,67 @@ export default function AdminDashboard() {
   const [showForm, setShowForm] = useState(false);
   const [editingCar, setEditingCar] = useState<Car | null>(null);
 
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
   useEffect(() => {
     fetchCars();
   }, []);
 
   const fetchCars = async () => {
     try {
-      const res = await fetch('/api/cars');
+      const res = await fetch('/api/cars', { 
+        cache: 'no-store',
+        next: { revalidate: 0 }
+      });
       const data = await res.json();
       if (data.success) {
         setCars(data.data);
+        console.log('Завантажено автомобілі:', data.data.map((c: Car) => ({ name: c.name, order: c.order })));
       }
     } catch (error) {
       console.error('Помилка завантаження:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDragEnd = async (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (!over || active.id === over.id) return;
+
+    const oldIndex = cars.findIndex((car) => car._id === active.id);
+    const newIndex = cars.findIndex((car) => car._id === over.id);
+
+    const newCars = arrayMove(cars, oldIndex, newIndex);
+    setCars(newCars);
+
+    // Зберігаємо новий порядок на сервері
+    try {
+      const carIds = newCars.map((car) => car._id);
+      const response = await fetch('/api/cars/reorder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carIds }),
+      });
+      
+      const result = await response.json();
+      console.log('Порядок збережено:', result);
+      
+      if (!result.success) {
+        console.error('Помилка збереження:', result.error);
+        fetchCars();
+      }
+    } catch (error) {
+      console.error('Помилка збереження порядку:', error);
+      // Повертаємо старий порядок у разі помилки
+      fetchCars();
     }
   };
 
@@ -118,41 +184,34 @@ export default function AdminDashboard() {
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-8 py-12">
+        <div className="mb-6 p-4 bg-blue-100 border border-blue-300 rounded-[10px]">
+          <p className="text-blue-800 font-bold">💡 Перетягуйте картки для зміни порядку відображення на сайті</p>
+        </div>
+
         {loading ? (
           <div className="text-center text-2xl">Завантаження...</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cars.map((car) => (
-              <div key={car._id} className="bg-white rounded-[10px] overflow-hidden shadow-lg">
-                <div className="relative h-48">
-                  <Image
-                    src={car.image}
-                    alt={car.name}
-                    fill
-                    className="object-cover"
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={cars.map((car) => car._id)}
+              strategy={verticalListSortingStrategy}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {cars.map((car) => (
+                  <SortableCarCard
+                    key={car._id}
+                    car={car}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
                   />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{car.name}</h3>
-                  <p className="text-gray-600 mb-4">Застава: {car.deposit}</p>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => handleEdit(car)}
-                      className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-[10px] hover:bg-blue-600 transition-colors font-bold"
-                    >
-                      Редагувати
-                    </button>
-                    <button
-                      onClick={() => handleDelete(car._id)}
-                      className="flex-1 px-4 py-2 bg-red-500 text-white rounded-[10px] hover:bg-red-600 transition-colors font-bold"
-                    >
-                      Видалити
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </SortableContext>
+          </DndContext>
         )}
 
         {cars.length === 0 && !loading && (
@@ -181,241 +240,74 @@ export default function AdminDashboard() {
   );
 }
 
-// Форма для додавання/редагування автомобіля
-function CarForm({ car, onClose, onSave }: { car: Car | null; onClose: () => void; onSave: () => void }) {
-  const [formData, setFormData] = useState({
-    name: car?.name || '',
-    nameEn: car?.nameEn || '',
-    image: car?.image || '',
-    tags: car?.tags?.join(', ') || '',
-    tagsEn: car?.tagsEn?.join(', ') || '',
-    deposit: car?.deposit || '',
-    pricing: car?.pricing || [
-      { period: '1-3 дні', price: '' },
-      { period: '4-9 днів', price: '' },
-      { period: '10-29 днів', price: '' },
-      { period: '30 та більше днів', price: '' },
-    ],
-  });
-  const [uploading, setUploading] = useState(false);
-  const [saving, setSaving] = useState(false);
+// Sortable Car Card Component
+function SortableCarCard({ 
+  car, 
+  onEdit, 
+  onDelete 
+}: { 
+  car: Car; 
+  onEdit: (car: Car) => void; 
+  onDelete: (id: string) => void;
+}) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: car._id });
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    setUploading(true);
-    const formDataObj = new FormData();
-    formDataObj.append('file', file);
-
-    try {
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: formDataObj,
-      });
-      const data = await res.json();
-      
-      if (data.success) {
-        setFormData({ ...formData, image: data.url });
-      }
-    } catch (error) {
-      console.error('Помилка завантаження:', error);
-      alert('Помилка завантаження зображення');
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSaving(true);
-
-    const carData = {
-      name: formData.name,
-      nameEn: formData.nameEn,
-      image: formData.image,
-      tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean),
-      tagsEn: formData.tagsEn.split(',').map(tag => tag.trim()).filter(Boolean),
-      deposit: formData.deposit,
-      pricing: formData.pricing,
-    };
-
-    try {
-      const url = car ? `/api/cars/${car._id}` : '/api/cars';
-      const method = car ? 'PUT' : 'POST';
-
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(carData),
-      });
-
-      const data = await res.json();
-      
-      if (data.success) {
-        onSave();
-      } else {
-        alert(data.error || 'Помилка збереження');
-      }
-    } catch (error) {
-      console.error('Помилка збереження:', error);
-      alert('Помилка збереження автомобіля');
-    } finally {
-      setSaving(false);
-    }
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+    cursor: 'grab',
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
-      <div className="bg-white rounded-[10px] p-8 max-w-2xl w-full my-8 max-h-[90vh] overflow-y-auto">
-        <h2 
-          className="text-3xl font-black mb-6 uppercase"
-          style={{ fontFamily: 'var(--font-unbounded)' }}
-        >
-          {car ? 'Редагувати авто' : 'Додати авто'}
-        </h2>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-bold mb-2">Назва автомобіля</label>
-            <input
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-bold mb-2">Назва англійською (опціонально)</label>
-            <input
-              type="text"
-              value={formData.nameEn}
-              onChange={(e) => setFormData({ ...formData, nameEn: e.target.value })}
-              placeholder="Car name in English"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-bold mb-2">Зображення</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px]"
-            />
-            {uploading && <p className="text-sm text-gray-600 mt-2">Завантаження...</p>}
-            {formData.image && (
-              <div className="mt-4 relative h-48 rounded-[10px] overflow-hidden">
-                <Image src={formData.image} alt="Preview" fill className="object-cover" />
-              </div>
-            )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-bold mb-2">Теги (через кому)</label>
-            <input
-              type="text"
-              value={formData.tags}
-              onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-              placeholder="Преміум, Автомат, Дизель"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-bold mb-2">Теги англійською (опціонально)</label>
-            <input
-              type="text"
-              value={formData.tagsEn}
-              onChange={(e) => setFormData({ ...formData, tagsEn: e.target.value })}
-              placeholder="Premium, Automatic, Diesel"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-bold mb-2">Застава (в євро)</label>
-            <input
-              type="text"
-              value={formData.deposit}
-              onChange={(e) => setFormData({ ...formData, deposit: e.target.value })}
-              placeholder="1 500 €"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-bold mb-2">Ціноутворення (в євро)</label>
-            {formData.pricing.map((p, index) => (
-              <div key={index} className="mb-4 p-3 border border-gray-200 rounded-[10px]">
-                <div className="flex gap-2 mb-2">
-                  <input
-                    type="text"
-                    value={p.period}
-                    onChange={(e) => {
-                      const newPricing = [...formData.pricing];
-                      newPricing[index].period = e.target.value;
-                      setFormData({ ...formData, pricing: newPricing });
-                    }}
-                    placeholder="Період українською"
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-                    required
-                  />
-                  <input
-                    type="text"
-                    value={p.periodEn || ''}
-                    onChange={(e) => {
-                      const newPricing = [...formData.pricing];
-                      newPricing[index].periodEn = e.target.value;
-                      setFormData({ ...formData, pricing: newPricing });
-                    }}
-                    placeholder="Period in English"
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-                  />
-                </div>
-                <input
-                  type="text"
-                  value={p.price}
-                  onChange={(e) => {
-                    const newPricing = [...formData.pricing];
-                    newPricing[index].price = e.target.value;
-                    setFormData({ ...formData, pricing: newPricing });
-                  }}
-                  placeholder={index === formData.pricing.length - 1 ? "договірна" : "Ціна"}
-                  className="w-full px-4 py-2 border-2 border-gray-300 rounded-[10px] focus:border-[#FF4400] outline-none"
-                />
-              </div>
-            ))}
-            <p className="text-xs text-gray-500 mt-2">Для останнього періоду залиште ціну пустою, щоб показати "договірна"</p>
-          </div>
-
-          <div className="flex gap-4 pt-4">
-            <button
-              type="submit"
-              disabled={saving || uploading}
-              className="flex-1 py-3 rounded-[10px] text-white font-bold uppercase transition-all duration-300 hover:scale-105 disabled:opacity-50"
-              style={{
-                fontFamily: 'var(--font-unbounded)',
-                background: 'radial-gradient(circle, #FF4400 55%, #D91300 100%)',
-              }}
-            >
-              {saving ? 'Збереження...' : 'Зберегти'}
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="flex-1 py-3 border-2 border-[#070707] rounded-[10px] hover:bg-[#070707] hover:text-white transition-colors font-bold"
-              style={{ fontFamily: 'var(--font-unbounded)' }}
-            >
-              Скасувати
-            </button>
-          </div>
-        </form>
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+      className="bg-white rounded-[10px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+    >
+      <div className="relative h-48">
+        <Image
+          src={car.image}
+          alt={car.name}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+          <span className="text-sm font-bold">🔄 Перетягніть</span>
+        </div>
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2">{car.name}</h3>
+        <p className="text-gray-600 mb-4">Застава: {car.deposit}</p>
+        <div className="flex gap-2">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onEdit(car);
+            }}
+            className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-[10px] hover:bg-blue-600 transition-colors font-bold"
+          >
+            Редагувати
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(car._id);
+            }}
+            className="flex-1 px-4 py-2 bg-red-500 text-white rounded-[10px] hover:bg-red-600 transition-colors font-bold"
+          >
+            Видалити
+          </button>
+        </div>
       </div>
     </div>
   );

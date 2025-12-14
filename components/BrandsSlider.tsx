@@ -79,7 +79,7 @@ export default function BrandsSlider() {
   }, [isPaused, cardWidth]);
 
   return (
-    <section className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
+    <section className="bg-[#DDDDDD] px-[15px] md:px-[50px] lg:px-[150px] py-[60px] md:py-[100px] lg:py-[150px]">
       <div className="flex items-center justify-center gap-[20px] md:gap-[50px]">
         {/* Ліва стрілка */}
         <button

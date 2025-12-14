@@ -6,11 +6,20 @@ import Car from '@/models/Car';
 export async function GET() {
   try {
     await connectDB();
-    const cars = await Car.find({ isActive: true }).sort({ createdAt: -1 });
+    const cars = await Car.find({ isActive: true }).sort({ order: 1, createdAt: -1 });
+    
+    console.log('GET /api/cars - повертаємо', cars.length, 'автомобілів');
+    cars.slice(0, 5).forEach(car => {
+      console.log(`  ${car.name} - order: ${car.order}`);
+    });
     
     return NextResponse.json({ 
       success: true, 
       data: cars 
+    }, { 
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      }
     });
   } catch (error: any) {
     return NextResponse.json({ 
@@ -26,7 +35,15 @@ export async function POST(request: NextRequest) {
     await connectDB();
     const body = await request.json();
     
-    const car = await Car.create(body);
+    // Знаходимо максимальне значення order
+    const maxOrderCar = await Car.findOne().sort({ order: -1 }).select('order');
+    const nextOrder = maxOrderCar ? (maxOrderCar.order || 0) + 1 : 0;
+    
+    // Створюємо автомобіль з правильним order
+    const car = await Car.create({
+      ...body,
+      order: nextOrder
+    });
     
     return NextResponse.json({ 
       success: true, 

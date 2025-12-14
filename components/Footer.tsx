@@ -122,14 +122,14 @@ export default function Footer() {
                 </span>
                 <div className="flex gap-[10px]">
                   <Link 
-                    href="https://instagram.com" 
+                    href="https://instagram.com/rentalviv" 
                     target="_blank"
                     className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
                   >
                     <img src="/images/socials/insta-icon.svg" alt="Instagram" className="w-[18px] h-[18px]" />
                   </Link>
                   <Link 
-                    href="https://tiktok.com" 
+                    href="https://tiktok.com/@rentalviv" 
                     target="_blank"
                     className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
                   >
@@ -148,7 +148,7 @@ export default function Footer() {
                 </span>
                 <div className="flex gap-[10px] items-center">
                   <Link 
-                    href="https://t.me/yourusername" 
+                    href="https://t.me/rentalviv1" 
                     target="_blank"
                     className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
                   >
@@ -267,14 +267,14 @@ export default function Footer() {
               </span>
               <div className="flex gap-[10px]">
                 <Link 
-                  href="https://instagram.com" 
+                  href="https://instagram.com/rentalviv" 
                   target="_blank"
                   className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
                 >
                   <img src="/images/socials/insta-icon.svg" alt="Instagram" className="w-[20px] h-[20px]" />
                 </Link>
                 <Link 
-                  href="https://tiktok.com" 
+                  href="https://tiktok.com/@rentalviv" 
                   target="_blank"
                   className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
                 >
@@ -293,7 +293,7 @@ export default function Footer() {
               </span>
               <div className="flex gap-[10px]">
                 <Link 
-                  href="https://t.me/yourusername" 
+                  href="https://t.me/rentalviv1" 
                   target="_blank"
                   className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
                 >

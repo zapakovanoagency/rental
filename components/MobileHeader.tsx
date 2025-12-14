@@ -27,13 +27,13 @@ export default function MobileHeader() {
   return (
     <>
       {/* Header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[35px] md:h-[56px] flex items-center justify-between px-[15px] md:px-5 shadow-[0_0_30px_rgba(0,0,0,1)] md:shadow-[0_0_70px_rgba(0,0,0,1)]">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[35px] md:h-[56px] flex items-center justify-between px-[15px] py-[5px] md:px-5 shadow-[0_0_30px_rgba(0,0,0,1)] md:shadow-[0_0_70px_rgba(0,0,0,1)]">
         {/* Left Part - Navigation */}
         <div className="flex items-center gap-[15px]">
           {/* Menu Button */}
           <button 
             onClick={toggleMenu}
-            className="flex items-center gap-[5px] px-[10px]"
+            className="flex items-center gap-[5px]"
             aria-label="Відкрити меню навігації"
             aria-expanded={isMenuOpen}
           >
@@ -140,6 +140,13 @@ export default function MobileHeader() {
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = 'brightness(1)';
               }}
+              onTouchStart={(e) => {
+                const target = e.currentTarget;
+                target.style.filter = 'brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(6500%) hue-rotate(0deg) brightness(110%) contrast(120%)';
+                setTimeout(() => {
+                  target.style.filter = 'brightness(1)';
+                }, 200);
+              }}
             />
           </Link>
         </div>
@@ -154,11 +161,11 @@ export default function MobileHeader() {
                 setIsCurrencyOpen(false);
                 setIsLanguageOpen(false);
               }}
-              className="w-[35px] h-[35px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+              className="w-[25px] h-[25px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
               aria-label="Відкрити меню соціальних мереж"
               aria-expanded={isSocialOpen}
             >
-              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[20px] h-[20px]" />
+              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[15px] h-[15px]" />
             </button>
             <button onClick={() => {
               setIsSocialOpen(!isSocialOpen);
@@ -172,7 +179,7 @@ export default function MobileHeader() {
             {isSocialOpen && (
               <div className="absolute top-full right-0 mt-2 bg-[#1a1a1a] rounded-[20px] p-3 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-[60] flex gap-2">
                 <a 
-                  href="https://t.me/yourusername" 
+                  href="https://t.me/rentalviv1" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[35px] h-[35px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
@@ -181,7 +188,7 @@ export default function MobileHeader() {
                   <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[20px] h-[20px]" />
                 </a>
                 <a 
-                  href="https://wa.me/yourphonenumber" 
+                  href="https://wa.me/380777877087" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[35px] h-[35px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
@@ -190,7 +197,7 @@ export default function MobileHeader() {
                   <img src="/images/socials/whatsapp-icon.svg" alt="WhatsApp" className="w-[20px] h-[20px]" />
                 </a>
                 <a 
-                  href="https://instagram.com/yourusername" 
+                  href="https://instagram.com/rentalviv" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[35px] h-[35px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
@@ -228,7 +235,7 @@ export default function MobileHeader() {
             {isSocialOpen && (
               <div className="absolute top-full right-0 mt-2 bg-[#1a1a1a] rounded-[20px] p-2 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-[60] flex gap-2">
                 <a 
-                  href="https://t.me/yourusername" 
+                  href="https://t.me/rentalviv1" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[30px] h-[30px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
@@ -237,7 +244,7 @@ export default function MobileHeader() {
                   <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[15px] h-[15px]" />
                 </a>
                 <a 
-                  href="https://wa.me/yourphonenumber" 
+                  href="https://wa.me/380777877087" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[30px] h-[30px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
@@ -246,7 +253,7 @@ export default function MobileHeader() {
                   <img src="/images/socials/whatsapp-icon.svg" alt="WhatsApp" className="w-[15px] h-[15px]" />
                 </a>
                 <a 
-                  href="https://instagram.com/yourusername" 
+                  href="https://instagram.com/rentalviv" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-[30px] h-[30px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"

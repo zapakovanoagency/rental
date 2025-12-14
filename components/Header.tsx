@@ -153,7 +153,7 @@ export default function Header() {
           <div className="flex items-center gap-[5px] ">
             {/* Telegram */}
             <a 
-              href="https://t.me/yourusername" 
+              href="https://t.me/rentalviv1" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-[35px] h-[35px] flex items-center justify-center transition-all hover:scale-110 hover:bg-[#FF4400] bg-[#1E1D1E] p-2 rounded-[10px]"
@@ -164,7 +164,7 @@ export default function Header() {
 
             {/* WhatsApp */}
             <a 
-              href="https://wa.me/yourphonenumber" 
+              href="https://wa.me/380777877087" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-[35px] h-[35px] flex items-center justify-center transition-all hover:scale-110 hover:bg-[#FF4400] bg-[#1E1D1E] p-2 rounded-[10px]"
@@ -175,7 +175,7 @@ export default function Header() {
 
             {/* Instagram */}
             <a 
-              href="https://instagram.com/yourusername" 
+              href="https://instagram.com/rentalviv" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-[35px] h-[35px] flex items-center justify-center transition-all hover:scale-110 hover:bg-[#FF4400] bg-[#1E1D1E] rounded-[10px] p-2"

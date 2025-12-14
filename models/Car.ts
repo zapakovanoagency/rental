@@ -16,6 +16,7 @@ export interface ICar extends Document {
   deposit: string;
   pricing: IPricing[];
   isActive: boolean;
+  order: number; // Порядок відображення
   createdAt: Date;
   updatedAt: Date;
 }
@@ -65,6 +66,10 @@ const CarSchema = new Schema<ICar>({
   isActive: { 
     type: Boolean, 
     default: true 
+  },
+  order: {
+    type: Number,
+    default: 0
   }
 }, {
   timestamps: true

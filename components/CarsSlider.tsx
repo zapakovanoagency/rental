@@ -99,7 +99,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
       </div>
 
       {/* Сітка автомобілів */}
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[50px] mb-[30px] md:mb-12">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[30px] lg:gap-[50px] mb-[30px] md:mb-12">
         {currentCars.map((car) => (
           <CarCard key={car._id} {...car} />
         ))}
@@ -113,7 +113,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
         className="md:hidden w-full flex justify-center border-2 border-[#070707] rounded-[10px] px-[30px] py-4 hover:bg-[#070707] hover:text-white transition-colors mb-[30px]"
       >
         <span 
-          className="text-[16px] font-bold leading-none uppercase"
+          className="text-[14px] md:text-[16px] font-bold leading-none uppercase"
           style={{ fontFamily: 'var(--font-unbounded)' }}
         >
           {t('viewAllCars')}
