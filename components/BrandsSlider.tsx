@@ -79,8 +79,8 @@ export default function BrandsSlider() {
   }, [isPaused, cardWidth]);
 
   return (
-    <section className="bg-[#DDDDDD] px-[15px] md:px-[50px] lg:px-[150px] py-[60px] md:py-[100px] lg:py-[150px]">
-      <div className="flex items-center justify-center gap-[20px] md:gap-[50px]">
+    <section className="bg-[#DDDDDD] px-[15px] md:px-[50px] lg:px-[150px] xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
+      <div className="flex items-center justify-center gap-[20px] md:gap-[50px] xl:gap-[60px] 2xl:gap-[80px]">
         {/* Ліва стрілка */}
         <button
           onClick={handlePrev}
@@ -101,12 +101,12 @@ export default function BrandsSlider() {
 
         {/* Логотипи брендів */}
         <div 
-          className="relative w-[260px] md:w-[600px] lg:w-[1050px] overflow-hidden"
+          className="relative w-[260px] md:w-[600px] lg:w-[1050px] xl:w-[1200px] 2xl:w-[1400px] overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           <div 
-            className="flex items-center gap-[15px]"
+            className="flex items-center gap-[15px] xl:gap-[20px] 2xl:gap-[25px]"
             style={{
               transform: `translateX(${offset}px)`,
               willChange: 'transform'
@@ -115,14 +115,14 @@ export default function BrandsSlider() {
             {infiniteBrands.map((brand, index) => (
               <div
                 key={`${brand.id}-${index}`}
-                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px]  border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
+                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px] xl:w-[150px] xl:h-[150px] 2xl:w-[170px] 2xl:h-[170px] border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
               >
-                <div className="w-[50px] h-[50px] md:w-[65px] md:h-[65px] lg:w-[85px] lg:h-[85px] relative flex items-center justify-center">
+                <div className="w-[50px] h-[50px] md:w-[65px] md:h-[65px] lg:w-[85px] lg:h-[85px] xl:w-[100px] xl:h-[100px] 2xl:w-[115px] 2xl:h-[115px] relative flex items-center justify-center">
                   <Image
                     src={brand.logo}
                     alt={brand.name}
-                    width={85}
-                    height={85}
+                    width={115}
+                    height={115}
                     className="object-contain"
                   />
                 </div>

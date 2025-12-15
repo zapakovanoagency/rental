@@ -75,9 +75,9 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
       </h2>
 
       {/* Заголовок і кнопка - Desktop */}
-      <div className="hidden md:flex justify-between items-center mb-20">
+      <div className="hidden md:flex justify-between items-center mb-20 xl:mb-24 2xl:mb-28">
         <h2 
-          className="text-[#070707] text-[40px] lg:text-[60px] leading-none font-black uppercase"
+          className="text-[#070707] text-[40px] lg:text-[60px] xl:text-[70px] 2xl:text-[80px] leading-none font-black uppercase"
           style={{ fontFamily: 'var(--font-unbounded)' }}
         >
           {t('autoparkTitle')}
@@ -87,10 +87,10 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-2 border-[#070707] rounded-[10px] px-[50px] py-5 hover:bg-[#070707] hover:text-white transition-colors"
+          className="border-2 border-[#070707] rounded-[10px] px-[50px] xl:px-[60px] 2xl:px-[70px] py-5 xl:py-6 2xl:py-7 hover:bg-[#070707] hover:text-white transition-colors"
         >
           <span 
-            className="text-2xl font-bold leading-none uppercase"
+            className="text-2xl xl:text-3xl 2xl:text-4xl font-bold leading-none uppercase"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             {t('viewAllCars')}
@@ -99,7 +99,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
       </div>
 
       {/* Сітка автомобілів */}
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[30px] lg:gap-[50px] mb-[30px] md:mb-12">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[30px] lg:gap-[50px] xl:gap-[50px] 2xl:gap-[50px] mb-[30px] md:mb-12 xl:mb-16 2xl:mb-20">
         {currentCars.map((car) => (
           <CarCard key={car._id} {...car} />
         ))}

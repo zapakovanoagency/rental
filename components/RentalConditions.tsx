@@ -30,17 +30,17 @@ export default function RentalConditions() {
   const activeContent = rentalConditions.find((item: AccordionItem) => item.id === activeAccordion);
 
   return (
-    <section id="rental-conditions" className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[250px] py-[60px] md:py-[100px] lg:py-[150px]">
+    <section id="rental-conditions" className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[250px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
       {/* Заголовок */}
       <h2 
-        className="text-[#070707] text-[30px] text-center max-w-[260px] md:max-w-full mx-auto md:text-[40px] lg:text-[60px] leading-[120%] font-black  md:text-center mb-[30px] md:mb-20 uppercase"
+        className="text-[#070707] text-[30px] text-center max-w-[260px] md:max-w-full mx-auto md:text-[40px] lg:text-[60px] xl:text-[70px] 2xl:text-[80px] leading-[120%] font-black  md:text-center mb-[30px] md:mb-20 xl:mb-24 2xl:mb-28 uppercase"
         style={{ fontFamily: 'var(--font-unbounded)' }}
       >
         {t('rentalConditionsPageTitle')}
       </h2>
 
       {/* Контент */}
-      <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px]">
+      <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px] xl:gap-[70px] 2xl:gap-[100px]">
         {/* Mobile/Tablet - Акордеони з контентом під кожним */}
         <div className="lg:hidden w-full flex flex-col gap-[15px]">
           {rentalConditions.map((item) => (
@@ -125,14 +125,14 @@ export default function RentalConditions() {
         </div>
 
         {/* Desktop - Колонки поруч */}
-        <div className="hidden lg:flex gap-[50px] w-full">
+        <div className="hidden lg:flex gap-[50px] xl:gap-[70px] 2xl:gap-[100px] w-full">
           {/* Ліва колонка - Акордеони */}
-          <div className="w-[685px] flex flex-col gap-5">
+          <div className="w-[685px] xl:w-[900px] 2xl:w-[1000px] flex flex-col gap-5 xl:gap-6 2xl:gap-7">
             {rentalConditions.map((item) => (
               <button
                 key={item.id}
                 onClick={() => toggleAccordion(item.id)}
-                className={`w-full h-[69px] rounded-[10px] px-[50px] py-5 flex items-center justify-between transition-all group ${
+                className={`w-full h-[69px] xl:h-[80px] 2xl:h-[90px] rounded-[10px] px-[50px] xl:px-[60px] 2xl:px-[70px] py-5 xl:py-6 2xl:py-7 flex items-center justify-between transition-all group ${
                   activeAccordion === item.id
                     ? 'shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)]'
                     : 'border-2 border-[#070707] hover:border-[#FF4400] cursor-pointer'
@@ -146,7 +146,7 @@ export default function RentalConditions() {
                 }
               >
                 <span
-                  className={`text-2xl font-black leading-[120%] ${
+                  className={`text-2xl xl:text-3xl 2xl:text-4xl font-black leading-[120%] ${
                     activeAccordion === item.id ? 'text-white' : 'text-[#070707] group-hover:text-[#FF4400]'
                   }`}
                   style={{ fontFamily: 'var(--font-nunito-sans)' }}
@@ -175,28 +175,28 @@ export default function RentalConditions() {
           </div>
 
           {/* Права колонка - Контент */}
-          <div className="w-[685px] flex flex-col gap-[10px]">
+          <div className="w-[685px] xl:w-[900px] 2xl:w-[1000px] flex flex-col gap-[10px] xl:gap-[12px] 2xl:gap-[15px]">
             {activeContent?.content.map((block, index) => (
               <div
                 key={index}
-                className="bg-[#070707] rounded-[10px] px-[50px] py-[30px] shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)]"
+                className="bg-[#070707] rounded-[10px] px-[50px] xl:px-[60px] 2xl:px-[70px] py-[30px] xl:py-[35px] 2xl:py-[40px] shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)]"
               >
                 <h3
-                  className="text-white text-base font-black leading-[120%] mb-[10px] uppercase"
+                  className="text-white text-base xl:text-lg 2xl:text-xl font-black leading-[120%] mb-[10px] xl:mb-[12px] 2xl:mb-[15px] uppercase"
                   style={{ fontFamily: 'var(--font-unbounded)' }}
                 >
                   {block.title}
                 </h3>
                 
                 {Array.isArray(block.description) ? (
-                  <div className="text-white text-sm leading-[120%]" style={{ fontFamily: 'var(--font-nunito-sans)' }}>
+                  <div className="text-white text-sm xl:text-base 2xl:text-lg leading-[120%]" style={{ fontFamily: 'var(--font-nunito-sans)' }}>
                     {block.description.map((line, lineIndex) => (
                       <p key={lineIndex}>{line}</p>
                     ))}
                   </div>
                 ) : (
                   <p
-                    className="text-white text-sm leading-[120%]"
+                    className="text-white text-sm xl:text-base 2xl:text-lg leading-[120%]"
                     style={{ fontFamily: 'var(--font-nunito-sans)' }}
                   >
                     {block.description}
