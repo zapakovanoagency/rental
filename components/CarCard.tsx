@@ -60,7 +60,7 @@ export default function CarCard({ name, nameEn, image, tags, tagsEn, deposit, pr
     <div className="bg-[#98A2A6] rounded-[8px] md:rounded-[10px] flex flex-col md:flex-row gap-[25px] md:gap-[35px] lg:gap-[20px] xl:gap-[30px] 2xl:gap-[60px] p-3 md:p-6 lg:pl-5 lg:pr-[20px] xl:pr-[25px] 2xl:pr-[40px] lg:py-4 xl:py-5 2xl:py-7 shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)] h-full">
       {/* Фото + кнопка (desktop) */}
       <div className="flex flex-col gap-[8px] md:gap-[12px] lg:gap-[8px] xl:gap-[15px] 2xl:gap-[18px] md:shrink-0 md:justify-center md:self-center">
-        <div className="w-full md:w-[320px] lg:w-[200px] xl:w-[300px] 2xl:w-[380px] h-[199.5px] md:h-[250px] lg:h-[170px] xl:h-[235px] 2xl:h-[300px] bg-gray-300 rounded-[8px] md:rounded-[10px] relative overflow-hidden">
+        <div className="w-full md:w-[320px] lg:w-[200px] xl:w-[300px] 2xl:w-[380px] h-[230px] md:h-[250px] lg:h-[170px] xl:h-[235px] 2xl:h-[300px] bg-gray-300 rounded-[8px] md:rounded-[10px] relative overflow-hidden">
           <Image
             src={image}
             alt={`${name} - оренда авто у Львові`}
