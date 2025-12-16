@@ -78,7 +78,7 @@ export default async function Home() {
       <HeroSection />
 
       <section id="autopark" className="bg-[#DDDDDD] px-[15px] md:px-[20px] lg:px-[20px] xl:px-[60px] 2xl:px-[150px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
-        <div className="max-w-[2560px] mx-auto">
+        <div className="max-w-[1920px] mx-auto">
           <CarsSlider cars={carsData} />
         </div>
       </section>

@@ -19,7 +19,7 @@ export default function ServicesSection() {
   
   return (
     <section id="services" className="bg-[#98A2A6] px-[15px] md:px-[50px] lg:px-[250px] xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
-      <div className="max-w-[2560px] mx-auto">
+      <div className="max-w-[1920px] mx-auto">
         {/* Заголовок */}
         <h2 
           className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] xl:text-[60px] 2xl:text-[80px] leading-[120%] font-black text-center mb-[30px] md:mb-20 xl:mb-24 2xl:mb-28 uppercase"

@@ -41,7 +41,7 @@ export default function HeroSection() {
       ></div>
       
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[2560px] mx-auto">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-[15px] md:px-5">
         <div className="text-left md:text-center flex flex-col items-start md:items-center gap-[248px] md:gap-[193px] xl:gap-[220px] 2xl:gap-[250px]">
           <h1 
           className="text-white text-[30px] leading-[100%] md:text-[70px] max-w-[290px] md:max-w-none lg:text-[80px] 2xl:text-[100px] md:leading-[100%] lg:leading-[80px] xl:leading-[100px] 2xl:leading-[120px] font-black uppercase whitespace-pre-line"
