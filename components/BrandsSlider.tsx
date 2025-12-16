@@ -80,14 +80,15 @@ export default function BrandsSlider() {
 
   return (
     <section className="bg-[#DDDDDD] px-[15px] md:px-[50px] lg:px-[150px] xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
-      <div className="flex items-center justify-center gap-[20px] md:gap-[50px] xl:gap-[60px] 2xl:gap-[80px]">
-        {/* Ліва стрілка */}
-        <button
-          onClick={handlePrev}
-          className="flex-shrink-0 transition-all cursor-pointer group"
-          aria-label="Previous brands"
-        >
-          <svg 
+      <div className="max-w-[2560px] mx-auto">
+        <div className="flex items-center justify-center gap-[20px] md:gap-[50px] xl:gap-[60px] 2xl:gap-[80px]">
+          {/* Ліва стрілка */}
+          <button
+            onClick={handlePrev}
+            className="flex-shrink-0 transition-all cursor-pointer group"
+            aria-label="Previous brands"
+          >
+            <svg 
             width="18" 
             height="10" 
             viewBox="0 0 27 15" 
@@ -148,6 +149,7 @@ export default function BrandsSlider() {
             <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
         </button>
+        </div>
       </div>
     </section>
   );

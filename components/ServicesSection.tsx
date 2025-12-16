@@ -19,13 +19,14 @@ export default function ServicesSection() {
   
   return (
     <section id="services" className="bg-[#98A2A6] px-[15px] md:px-[50px] lg:px-[250px] xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
-      {/* Заголовок */}
-      <h2 
-        className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] xl:text-[70px] 2xl:text-[80px] leading-[120%] font-black text-center mb-[30px] md:mb-20 xl:mb-24 2xl:mb-28 uppercase"
-        style={{ fontFamily: 'var(--font-unbounded)' }}
-      >
-        {t('servicesWeProvide')}
-      </h2>
+      <div className="max-w-[2560px] mx-auto">
+        {/* Заголовок */}
+        <h2 
+          className="text-[#070707] text-[25px] md:text-[40px] lg:text-[60px] xl:text-[60px] 2xl:text-[80px] leading-[120%] font-black text-center mb-[30px] md:mb-20 xl:mb-24 2xl:mb-28 uppercase"
+          style={{ fontFamily: 'var(--font-unbounded)' }}
+        >
+          {t('servicesWeProvide')}
+        </h2>
 
       {/* Сітка послуг */}
       <div className="flex flex-col gap-[30px] md:gap-[40px] lg:gap-0 mb-[30px] md:mb-20 xl:mb-24 2xl:mb-28">
@@ -68,12 +69,13 @@ export default function ServicesSection() {
         >
           <img src="/images/tg-btn.svg" alt="" className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] xl:w-[28px] xl:h-[28px] 2xl:w-[32px] 2xl:h-[32px]" />
           <span 
-            className="text-white text-[12px] md:text-2xl xl:text-3xl 2xl:text-4xl font-bold leading-[100%] text-center uppercase"
+            className="text-white text-[12px] md:text-[20px] xl:text-[24px] 2xl:text-4xl font-bold leading-[100%] text-center uppercase"
             style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             {t('chooseCar')}
           </span>
         </a>
+      </div>
       </div>
     </section>
   );
@@ -81,18 +83,18 @@ export default function ServicesSection() {
 
 function ServiceCard({ icon, title, description }: Service) {
   return (
-    <div className="w-full lg:w-[420px] xl:w-full 2xl:w-full flex flex-col gap-[15px] md:gap-5 xl:gap-6 2xl:gap-7">
+    <div className="w-full lg:w-[420px] xl:w-full 2xl:w-full flex flex-col gap-[15px] md:gap-5">
       {/* Заголовок з іконкою */}
-      <div className="flex items-center gap-[10px] xl:gap-[12px] 2xl:gap-[15px]">
+      <div className="flex items-center gap-[10px]">
         <Image
           src={icon}
           alt={title}
           width={30}
           height={30}
-          className="flex-shrink-0 xl:w-[35px] xl:h-[35px] 2xl:w-[40px] 2xl:h-[40px]"
+          className="flex-shrink-0"
         />
         <h3 
-          className="text-[#070707] text-[16px] md:text-2xl xl:text-3xl 2xl:text-4xl font-black leading-[120%]"
+          className="text-[#070707] text-[16px] md:text-2xl font-black leading-[120%]"
           style={{ fontFamily: 'var(--font-nunito-sans)' }}
         >
           {title}
@@ -101,7 +103,7 @@ function ServiceCard({ icon, title, description }: Service) {
       
       {/* Опис */}
       <p 
-        className="text-[#070707] text-[12px] md:text-sm xl:text-base 2xl:text-lg leading-[120%] whitespace-pre-line"
+        className="text-[#070707] text-[12px] md:text-sm leading-[120%] whitespace-pre-line"
         style={{ fontFamily: 'var(--font-nunito-sans)' }}
       >
         {description}
