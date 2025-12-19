@@ -99,7 +99,7 @@ export default function CarsSlider({ cars }: CarsSliderProps) {
       </div>
 
       {/* Сітка автомобілів */}
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] md:gap-[30px] lg:gap-[50px] xl:gap-[50px] 2xl:gap-[50px] mb-[30px] md:mb-12 xl:mb-16 2xl:mb-20">
+      <div className="flex flex-col xl:grid xl:grid-cols-2 gap-[30px] md:gap-[30px] lg:gap-[50px] xl:gap-[50px] 2xl:gap-[50px] mb-[30px] md:mb-12 xl:mb-16 2xl:mb-20">
         {currentCars.map((car) => (
           <CarCard key={car._id} {...car} />
         ))}

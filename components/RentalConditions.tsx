@@ -30,7 +30,7 @@ export default function RentalConditions() {
   const activeContent = rentalConditions.find((item: AccordionItem) => item.id === activeAccordion);
 
   return (
-    <section id="rental-conditions" className="bg-[#DDDDDD] px-[15px] md:px-[100px] lg:px-[250px] xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
+    <section id="rental-conditions" className="bg-[#DDDDDD] px-[15px] md:px-[50px]  xl:px-[150px] 2xl:px-[250px] py-[60px] md:py-[100px]  xl:py-[180px] 2xl:py-[200px]">
       <div className="max-w-[1920px] mx-auto">
         {/* Заголовок */}
         <h2 
@@ -41,9 +41,9 @@ export default function RentalConditions() {
         </h2>
 
         {/* Контент */}
-        <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px] xl:gap-[70px] 2xl:gap-[100px] 2xl:justify-center">
+        <div className="flex flex-col xl:flex-row gap-[30px] xl:gap-[50px] xl:gap-[70px] 2xl:gap-[100px] 2xl:justify-center">
         {/* Mobile/Tablet - Акордеони з контентом під кожним */}
-        <div className="lg:hidden w-full flex flex-col gap-[15px]">
+        <div className="xl:hidden w-full flex flex-col gap-[15px]">
           {rentalConditions.map((item) => (
             <div key={item.id} className="flex flex-col gap-[15px]">
               <button
@@ -97,7 +97,7 @@ export default function RentalConditions() {
                       className="bg-[#070707] rounded-[10px] px-[20px] md:px-[50px] py-[20px] md:py-[30px] shadow-[0_0_50px_rgba(0,0,0,0.1),0_0_15px_rgba(0,0,0,0.3)]"
                     >
                       <h3
-                        className="text-white text-[14px] md:text-base font-black leading-[120%] mb-[10px] uppercase"
+                        className="text-white text-[12px] md:text-base font-black leading-[120%] mb-[10px] uppercase"
                         style={{ fontFamily: 'var(--font-unbounded)' }}
                       >
                         {block.title}
@@ -126,7 +126,7 @@ export default function RentalConditions() {
         </div>
 
         {/* Desktop - Колонки поруч */}
-        <div className="hidden lg:flex gap-[50px] xl:gap-[70px] 2xl:gap-[100px] w-full 2xl:justify-center">
+        <div className="hidden xl:flex gap-[50px] xl:gap-[70px] 2xl:gap-[100px] w-full 2xl:justify-center">
           {/* Ліва колонка - Акордеони */}
           <div className="w-[685px] xl:w-[900px] 2xl:w-[1150px] flex flex-col gap-5 xl:gap-6 2xl:gap-8">
             {rentalConditions.map((item) => (

@@ -18,7 +18,7 @@ export default function ServicesSection() {
   const services = getServices(language);
   
   return (
-    <section id="services" className="bg-[#98A2A6] px-[15px] md:px-[50px] lg:px-[250px] xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
+    <section id="services" className="bg-[#98A2A6] px-[15px] md:px-[50px]  xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
       <div className="max-w-[1920px] mx-auto">
         {/* Заголовок */}
         <h2 

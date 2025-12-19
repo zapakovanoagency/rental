@@ -287,7 +287,7 @@ export default function MobileHeader() {
         <div 
           className="hidden md:block lg:hidden fixed top-[56px] left-5 z-40 w-[95px]"
         >
-          <nav className="bg-[#070707] rounded-[10px] px-[15px] py-[15px] flex flex-col gap-[15px] shadow-[0_0_30px_rgba(0,0,0,1)] ">
+          <nav className="bg-[#070707] rounded-b-[10px] px-[15px] py-[15px] flex flex-col gap-[15px] shadow-[0_0_30px_rgba(0,0,0,1)] ">
             <Link 
               href="/#autopark" 
               onClick={toggleMenu}

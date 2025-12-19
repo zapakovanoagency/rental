@@ -79,7 +79,7 @@ export default function BrandsSlider() {
   }, [isPaused, cardWidth]);
 
   return (
-    <section className="bg-[#DDDDDD] px-[15px] md:px-[50px] lg:px-[150px] xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
+    <section className="bg-[#DDDDDD] px-[15px] md:px-[50px]  xl:px-[100px] 2xl:px-[200px] py-[60px] md:py-[100px] lg:py-[150px] xl:py-[180px] 2xl:py-[200px]">
       <div className="max-w-[1920px] mx-auto">
         <div className="flex items-center justify-center gap-[20px] md:gap-[50px] xl:gap-[60px] 2xl:gap-[80px]">
           {/* Ліва стрілка */}
@@ -116,9 +116,9 @@ export default function BrandsSlider() {
             {infiniteBrands.map((brand, index) => (
               <div
                 key={`${brand.id}-${index}`}
-                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px] xl:w-[150px] xl:h-[150px] 2xl:w-[170px] 2xl:h-[170px] border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
+                className="w-[95px] h-[95px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px] xl:w-[150px] xl:h-[150px] 2xl:w-[170px] 2xl:h-[170px] border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
               >
-                <div className="w-[50px] h-[50px] md:w-[65px] md:h-[65px] lg:w-[85px] lg:h-[85px] xl:w-[100px] xl:h-[100px] 2xl:w-[115px] 2xl:h-[115px] relative flex items-center justify-center">
+                <div className="w-[60px] h-[60px] md:w-[65px] md:h-[65px] lg:w-[85px] lg:h-[85px] xl:w-[100px] xl:h-[100px] 2xl:w-[115px] 2xl:h-[115px] relative flex items-center justify-center">
                   <Image
                     src={brand.logo}
                     alt={brand.name}
