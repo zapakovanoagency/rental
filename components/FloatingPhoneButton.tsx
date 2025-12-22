@@ -5,7 +5,7 @@ export default function FloatingPhoneButton() {
     <>
       <a
         href="tel:+380777877087"
-        className="floating-phone-btn fixed top-40 lg:top-auto lg:bottom-8 right-8 z-50 w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[80px] lg:h-[80px] bg-[#FF4400] rounded-full flex items-center justify-center transition-all duration-300 animate-pulse-shadow group"
+        className="floating-phone-btn fixed top-40 lg:top-auto lg:bottom-8 right-[30px] lg:right-[40px] xl:right-[150px] 2xl:right-[250px] z-50 w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[80px] lg:h-[80px] bg-[#FF4400] rounded-full flex items-center justify-center transition-all duration-300 animate-pulse-shadow group"
         aria-label="Зателефонувати нам"
       >
         <img 

@@ -22,6 +22,8 @@ export default function MobileHeader() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setIsCurrencyOpen(false);
+    setIsLanguageOpen(false);
   };
 
   return (
@@ -56,6 +58,7 @@ export default function MobileHeader() {
                 onClick={() => {
                   setIsCurrencyOpen(!isCurrencyOpen);
                   setIsLanguageOpen(false);
+                  setIsMenuOpen(false);
                 }}
                 className="flex items-center gap-[5px]"
                 aria-label={`Вибрати валюту, поточна: ${currencySymbol}`}
@@ -92,6 +95,7 @@ export default function MobileHeader() {
                 onClick={() => {
                   setIsLanguageOpen(!isLanguageOpen);
                   setIsCurrencyOpen(false);
+                  setIsMenuOpen(false);
                 }}
                 className="flex items-center gap-[5px]"
                 aria-label={`Вибрати мову, поточна: ${languages.find(l => l.code === currentLanguage)?.label}`}
@@ -161,11 +165,11 @@ export default function MobileHeader() {
                 setIsCurrencyOpen(false);
                 setIsLanguageOpen(false);
               }}
-              className="w-[25px] h-[25px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+              className="w-[35px] h-[35px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
               aria-label="Відкрити меню соціальних мереж"
               aria-expanded={isSocialOpen}
             >
-              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[15px] h-[15px]" />
+              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[20px] h-[20px]" />
             </button>
             <button onClick={() => {
               setIsSocialOpen(!isSocialOpen);
@@ -221,7 +225,7 @@ export default function MobileHeader() {
               aria-label="Відкрити меню соціальних мереж"
               aria-expanded={isSocialOpen}
             >
-              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[15px] h-[15px]" />
+              <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[13px] h-[13px]" />
             </button>
             <button onClick={() => {
               setIsSocialOpen(!isSocialOpen);
