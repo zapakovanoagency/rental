@@ -89,14 +89,14 @@ export default function BrandsSlider() {
             aria-label="Previous brands"
           >
             <svg 
-            width="18" 
-            height="10" 
-            viewBox="0 0 27 15" 
+            width="15" 
+            height="27" 
+            viewBox="0 0 15 27" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            className="rotate-[-90deg] md:w-[27px] md:h-[15px]"
+            className="rotate-180 md:w-[15px] md:h-[27px]"
           >
-            <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
+            <path d="M0 2.08639L0 14.1008L0 24.9196C0 26.771 2.27674 27.6966 3.61138 26.3853L13.7782 16.3957C15.4073 14.7951 15.4073 12.1916 13.7782 10.591L9.91168 6.79188L3.61138 0.601456C2.27674 -0.690627 0 0.235043 0 2.08639Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
         </button>
 
@@ -116,7 +116,7 @@ export default function BrandsSlider() {
             {infiniteBrands.map((brand, index) => (
               <div
                 key={`${brand.id}-${index}`}
-                className="w-[95px] h-[95px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px] xl:w-[150px] xl:h-[150px] 2xl:w-[170px] 2xl:h-[170px] border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer flex-shrink-0"
+                className="w-[95px] h-[95px] md:w-[100px] md:h-[100px] lg:w-[130px] lg:h-[130px] xl:w-[150px] xl:h-[150px] 2xl:w-[170px] 2xl:h-[170px] border-2 border-[#070707] rounded-[10px] flex items-center justify-center hover:bg-[#070707] active:bg-[#070707] transition-colors cursor-pointer flex-shrink-0 group"
               >
                 <div className="w-[60px] h-[60px] md:w-[65px] md:h-[65px] lg:w-[85px] lg:h-[85px] xl:w-[100px] xl:h-[100px] 2xl:w-[115px] 2xl:h-[115px] relative flex items-center justify-center">
                   <Image
@@ -124,7 +124,7 @@ export default function BrandsSlider() {
                     alt={brand.name}
                     width={115}
                     height={115}
-                    className="object-contain"
+                    className="object-contain group-hover:brightness-0 group-hover:invert group-active:brightness-0 group-active:invert transition-all"
                   />
                 </div>
               </div>
@@ -139,14 +139,14 @@ export default function BrandsSlider() {
           aria-label="Next brands"
         >
           <svg 
-            width="18" 
-            height="10" 
-            viewBox="0 0 27 15" 
+            width="15" 
+            height="27" 
+            viewBox="0 0 15 27" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            className="rotate-90 md:w-[27px] md:h-[15px]"
+            className="md:w-[15px] md:h-[27px]"
           >
-            <path d="M13.5 0L0 15H27L13.5 0Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
+            <path d="M0 2.08639L0 14.1008L0 24.9196C0 26.771 2.27674 27.6966 3.61138 26.3853L13.7782 16.3957C15.4073 14.7951 15.4073 12.1916 13.7782 10.591L9.91168 6.79188L3.61138 0.601456C2.27674 -0.690627 0 0.235043 0 2.08639Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
         </button>
         </div>

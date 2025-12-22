@@ -20,9 +20,10 @@ export default function Footer() {
             <div className="flex flex-col gap-[10px]">
               <p 
                 className="text-white text-xs xl:text-sm 2xl:text-base leading-[120%] uppercase"
-                style={{ fontFamily: 'var(--font-nunito-sans)' }}
+                style={{ fontFamily: 'var(--font-unbounded)' }}
               >
-                {t('footerDescription')}
+                <span className="font-black">RENTALVIV</span>
+                <span className="font-normal"> - {t('comfortableRental')}</span>
               </p>
               <p 
                 className="text-white text-[10px] xl:text-xs 2xl:text-sm leading-[120%]"
@@ -51,7 +52,7 @@ export default function Footer() {
                   href="tel:+380777877087"
                   className="flex items-center gap-[10px] group transition-colors"
                   >
-                    <div className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform">
+                    <div className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all">
                       <img src="/images/socials/phone.svg" alt="Phone" className="w-[18px] h-[18px]" />
                     </div>
                     <span 
@@ -75,7 +76,7 @@ export default function Footer() {
                   href="mailto:rentalviv@gmail.com"
                   className="flex items-center gap-[10px] group transition-colors"
                   >
-                    <div className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform">
+                    <div className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all">
                       <img src="/images/socials/mail.svg" alt="Email" className="w-[18px] h-[18px]" />
                     </div>
                     <span 
@@ -124,14 +125,14 @@ export default function Footer() {
                   <Link 
                     href="https://instagram.com/rentalviv" 
                     target="_blank"
-                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                   >
                     <img src="/images/socials/insta-icon.svg" alt="Instagram" className="w-[18px] h-[18px]" />
                   </Link>
                   <Link 
                     href="https://tiktok.com/@rentalviv" 
                     target="_blank"
-                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                   >
                     <img src="/images/socials/tik-tok.svg" alt="TikTok" className="w-[18px] h-[18px]" />
                   </Link>
@@ -150,14 +151,14 @@ export default function Footer() {
                   <Link 
                     href="https://t.me/rentalviv1" 
                     target="_blank"
-                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                   >
                     <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[18px] h-[18px]" />
                   </Link>
                   <Link 
                     href="https://wa.me/380777877087" 
                     target="_blank"
-                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                    className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                   >
                     <img src="/images/socials/whatsapp-icon.svg" alt="WhatsApp" className="w-[18px] h-[18px]" />
                   </Link>
@@ -175,9 +176,10 @@ export default function Footer() {
           {/* Текст */}
           <p 
             className="text-white text-[10px] md:text-base leading-[120%] uppercase"
-            style={{ fontFamily: 'var(--font-nunito-sans)' }}
+            style={{ fontFamily: 'var(--font-unbounded)' }}
           >
-            {t('footerDescription')}
+            <span className="font-black">RENTALVIV</span>
+            <span className="font-normal"> - {t('comfortableRental')}</span>
           </p>
         </div>
 
@@ -197,7 +199,7 @@ export default function Footer() {
                 href="tel:+380777877087"
                 className="flex items-center gap-[10px]"
               >
-                <div className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform">
+                <div className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all">
                   <img src="/images/socials/phone.svg" alt="Phone" className="w-[20px] h-[20px]" />
                 </div>
                 <span 
@@ -221,7 +223,7 @@ export default function Footer() {
                 href="mailto:rentalviv@gmail.com"
                 className="flex items-center gap-[10px]"
               >
-                <div className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform">
+                <div className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all">
                   <img src="/images/socials/mail.svg" alt="Email" className="w-[20px] h-[20px]" />
                 </div>
                 <span 
@@ -269,14 +271,14 @@ export default function Footer() {
                 <Link 
                   href="https://instagram.com/rentalviv" 
                   target="_blank"
-                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                 >
                   <img src="/images/socials/insta-icon.svg" alt="Instagram" className="w-[20px] h-[20px]" />
                 </Link>
                 <Link 
                   href="https://tiktok.com/@rentalviv" 
                   target="_blank"
-                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                 >
                   <img src="/images/socials/tik-tok.svg" alt="TikTok" className="w-[20px] h-[20px]" />
                 </Link>
@@ -295,14 +297,14 @@ export default function Footer() {
                 <Link 
                   href="https://t.me/rentalviv1" 
                   target="_blank"
-                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                 >
                   <img src="/images/socials/tg-icon.svg" alt="Telegram" className="w-[20px] h-[20px]" />
                 </Link>
                 <Link 
                   href="https://wa.me/380777877087" 
                   target="_blank"
-                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 transition-transform"
+                  className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all"
                 >
                   <img src="/images/socials/whatsapp-icon.svg" alt="WhatsApp" className="w-[20px] h-[20px]" />
                 </Link>

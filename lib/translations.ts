@@ -50,6 +50,7 @@ export const translations = {
     // Footer
     footerText: '© 2024 RentalLviv. Всі права захищені.',
     footerDescription: 'RentaLviv - комфортна оренда авто',
+    comfortableRental: 'комфортна оренда авто',
     footerRights: '© 2025 RentaLviv. Всі права захищені',
     phoneNumber: 'Номер телефону',
     email: 'Електронна пошта',
@@ -131,6 +132,7 @@ export const translations = {
     // Footer
     footerText: '© 2024 RentalLviv. All rights reserved.',
     footerDescription: 'RentaLviv - comfortable car rental',
+    comfortableRental: 'comfortable car rental',
     footerRights: '© 2025 RentaLviv. All rights reserved',
     phoneNumber: 'Phone number',
     email: 'Email',

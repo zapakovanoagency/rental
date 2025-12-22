@@ -113,7 +113,7 @@ export default function CarCard({ name, nameEn, image, tags, tagsEn, deposit, pr
 
         {/* Застава */}
         <div className="flex justify-between items-start gap-5">
-          <span className="text-[#070707] text-[3.8vw] md:text-sm lg:text-base xl:text-sm 2xl:text-lg font-black leading-none" style={{ fontFamily: 'var(--font-unbounded)' }}>
+          <span className="text-[#070707] text-[3.8vw] md:text-sm lg:text-base xl:text-sm 2xl:text-lg font-black leading-none uppercase" style={{ fontFamily: 'var(--font-unbounded)' }}>
             {t('deposit')}
           </span>
           <span className="text-[#070707] text-[3.8vw] md:text-sm lg:text-base xl:text-sm 2xl:text-lg font-black leading-none" style={{ fontFamily: 'var(--font-unbounded)' }}>
