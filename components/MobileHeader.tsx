@@ -276,9 +276,7 @@ export default function MobileHeader() {
             rel="noopener noreferrer"
             className="hidden md:flex items-center justify-center gap-[10px] h-10 px-5 py-[10px] bg-transparent border border-white rounded-[10px] hover:bg-white hover:text-[#070707] transition-colors group"
           >
-            <svg className="w-4 h-5" viewBox="0 0 16 20" fill="none">
-              <path d="M8 0C5.79 0 4 1.79 4 4v3H3c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1h-1V4c0-2.21-1.79-4-4-4zm0 2c1.1 0 2 .9 2 2v3H6V4c0-1.1.9-2 2-2z" fill="white" className="group-hover:fill-[#070707]"/>
-            </svg>
+            <img src="/images/header-btn.svg" alt="" className="w-4 h-4 transition-all group-hover:invert" />
             <span className="text-white text-xs font-bold leading-none tracking-wide group-hover:text-[#070707] transition-colors" style={{ fontFamily: 'var(--font-unbounded)' }}>
               ДОСТУПНІ АВТО
             </span>
