@@ -6,7 +6,7 @@ export const translations = {
     rentalConditions: 'Умови оренди',
     services: 'Послуги',
     contacts: 'Контакти',
-    availableCars: 'ДОСТУПНІ АВТО',
+    availableCars: 'ДОСТУПНІ АВТО В ОРЕНДУ',
     
     // Hero Section
     heroTitle: 'комфортна оренда\nавто у Львові',

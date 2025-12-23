@@ -8,7 +8,7 @@ export default function HeroSection() {
   return (
     <section 
       id="hero" 
-      className="relative h-[550px] md:h-[1024px] lg:h-[900px] flex items-start justify-between md:items-center justify-start md:justify-center px-[15px] md:px-5 pt-[40px] lg:pt-[60px] pb-[60px] md:p-0 overflow-hidden"
+      className="relative h-[550px] md:h-[1024px] lg:h-[900px] flex items-start justify-between md:items-center justify-start md:justify-center px-[15px] md:px-[50px] pt-[40px] lg:pt-[60px] pb-[60px] md:p-0 overflow-hidden"
     >
       {/* Mobile background */}
       <Image
@@ -41,10 +41,10 @@ export default function HeroSection() {
       ></div>
       
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-[0] md:px-5">
-        <div className="text-left md:text-center flex flex-col items-start md:items-center gap-[298px] md:gap-[193px] xl:gap-[220px] 2xl:gap-[250px]">
+      <div className="relative z-10 w-full h-full lg:h-auto max-w-[1920px] mx-auto px-[0] md:px-[50px] flex flex-col md:justify-center lg:justify-start">
+        <div className="text-left md:text-center flex flex-col items-start md:items-center gap-[298px] md:gap-0 lg:gap-[220px] xl:gap-[220px] 2xl:gap-[250px] h-full md:h-auto lg:h-auto md:justify-center lg:justify-start">
           <h1 
-          className="text-white text-[30px] leading-[100%] md:text-[70px] max-w-[290px] md:max-w-none lg:text-[80px] 2xl:text-[100px] md:leading-[100%] lg:leading-[80px] xl:leading-[100px] 2xl:leading-[120px] font-black uppercase whitespace-pre-line"
+          className="text-white text-[30px] leading-[100%] md:text-[70px] max-w-[290px] md:max-w-none lg:text-[80px] 2xl:text-[100px] md:leading-[100%] lg:leading-[80px] xl:leading-[100px] 2xl:leading-[120px] font-black uppercase whitespace-pre-line md:mb-0 md:-mt-[60px] lg:mt-0"
           style={{ 
             fontFamily: 'var(--font-unbounded)',
             // textShadow: '0 0 50px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1)'
@@ -57,7 +57,7 @@ export default function HeroSection() {
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className=" w-full  lg:w-auto h-[42px] md:h-16 lg:h-auto px-5 md:px-[50px] lg:px-[50px] xl:px-[60px] 2xl:px-[70px] py-[14px] md:py-5 xl:py-6 2xl:py-7 rounded-[8px] md:rounded-[10px] text-white text-xs md:text-2xl xl:text-[24px] 2xl:text-4xl font-bold uppercase transition-all duration-300 hover:scale-110 hover:shadow-[0_0_80px_rgba(255,68,0,0.6),0_0_30px_rgba(217,19,0,0.8)] relative overflow-hidden group flex items-center justify-center gap-[10px] "
+          className=" w-full  lg:w-auto h-[42px] md:h-16 lg:h-auto px-5 md:px-[50px] lg:px-[50px] xl:px-[60px] 2xl:px-[70px] py-[14px] md:py-5 xl:py-6 2xl:py-7 rounded-[8px] md:rounded-[10px] text-white text-xs md:text-2xl xl:text-[24px] 2xl:text-4xl font-bold uppercase transition-all duration-300 hover:scale-110 hover:shadow-[0_0_80px_rgba(255,68,0,0.6),0_0_30px_rgba(217,19,0,0.8)] relative overflow-hidden group flex items-center justify-center gap-[10px] md:absolute md:bottom-[140px] md:left-1/2 md:-translate-x-1/2 lg:static lg:translate-x-0 lg:mt-0"
           style={{ 
             fontFamily: 'var(--font-unbounded)',
             background: 'radial-gradient(circle, #FF4400 55%, #D91300 100%)',

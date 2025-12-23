@@ -77,13 +77,13 @@ export default function CarCard({ name, nameEn, image, tags, tagsEn, deposit, pr
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex w-full md:w-[320px] lg:w-[380px] xl:w-[300px] 2xl:w-[380px] h-[36px] md:h-[45px] lg:h-[50px] xl:h-[45px] 2xl:h-[55px] bg-[#070707] hover:bg-[#DDDDDD] rounded-[8px] md:rounded-[10px] items-center justify-center gap-[6px] md:gap-[10px] lg:gap-[12px] xl:gap-[12px] 2xl:gap-[15px] px-[15px] md:px-[20px] lg:px-[25px] xl:px-[20px] 2xl:px-[35px] py-3 md:py-[12px] lg:py-[14px] xl:py-[15px] 2xl:py-[18px] transition-colors group"
+          className="hidden md:flex w-full md:w-[320px] lg:w-[380px] xl:w-[300px] 2xl:w-[380px] h-[36px] md:h-[45px] lg:h-[50px] xl:h-[45px] 2xl:h-[55px] bg-[#070707] hover:bg-[#DDDDDD] rounded-[8px] md:rounded-[10px] items-center justify-center gap-[6px] md:gap-[10px] lg:gap-[10px] xl:gap-[10px] 2xl:gap-[10px] px-[15px] md:px-[20px] lg:px-[25px] xl:px-[20px] 2xl:px-[35px] py-3 md:py-[12px] lg:py-[14px] xl:py-[15px] 2xl:py-[18px] transition-colors group"
         >
-          <svg className="w-[20px] h-[17px] lg:w-[22px] lg:h-[19px] xl:w-[20px] xl:h-[17px] 2xl:w-[24px] 2xl:h-[20px]" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-[20px] h-[17px] lg:w-[26px] lg:h-[22px] xl:w-[24px] xl:h-[20px] 2xl:w-[28px] 2xl:h-[24px]" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.5 1.5L3.5 7.5L7 9.5L14 4.5L9 11L14.5 13.5L16.5 1.5Z" fill="white" className="group-hover:fill-[#070707]"/>
           </svg>
           <span className="text-white group-hover:text-[#070707] text-[10px] md:text-[12px] lg:text-[13px] xl:text-[12px] 2xl:text-[14px] font-bold leading-none uppercase" style={{ fontFamily: 'var(--font-unbounded)' }}>
-            {t('rentInTelegram')}
+            {t('availableCars')}
           </span>
         </a>
       </div>
@@ -147,7 +147,7 @@ export default function CarCard({ name, nameEn, image, tags, tagsEn, deposit, pr
           <path d="M16.5 1.5L3.5 7.5L7 9.5L14 4.5L9 11L14.5 13.5L16.5 1.5Z" fill="white" className="group-hover:fill-[#070707]"/>
         </svg>
         <span className="text-white group-hover:text-[#070707] text-[3.3vw] font-bold leading-none uppercase" style={{ fontFamily: 'var(--font-unbounded)' }}>
-          {t('rentInTelegram')}
+          {t('availableCars')}
         </span>
       </a>
     </div>

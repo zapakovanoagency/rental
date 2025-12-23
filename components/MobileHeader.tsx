@@ -29,7 +29,7 @@ export default function MobileHeader() {
   return (
     <>
       {/* Header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[35px] md:h-[56px] flex items-center justify-between px-[15px] py-[5px] md:px-5 shadow-[0_0_30px_rgba(0,0,0,1)] md:shadow-[0_0_70px_rgba(0,0,0,1)]">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#070707] h-[35px] md:h-[56px] flex items-center justify-between px-[15px] py-[5px] md:px-[50px] shadow-[0_0_30px_rgba(0,0,0,1)] md:shadow-[0_0_70px_rgba(0,0,0,1)]">
         {/* Left Part - Navigation */}
         <div className="flex items-center gap-[15px]">
           {/* Menu Button */}

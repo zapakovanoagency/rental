@@ -61,7 +61,7 @@ export default function ServicesSection() {
           href="https://t.me/rentalviv_bot?start=67b5d38b76593c9f290290aa"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-[10px] xl:gap-[12px] 2xl:gap-[15px] px-[30px] md:px-[50px] xl:px-[60px] 2xl:px-[70px] py-4 md:py-5 xl:py-6 2xl:py-7 rounded-[10px] transition-all hover:scale-105 w-full md:w-auto"
+          className="flex items-center justify-center gap-[10px] xl:gap-[12px] 2xl:gap-[15px] px-[20px] md:px-[50px] xl:px-[60px] 2xl:px-[70px] py-4 md:py-5 xl:py-6 2xl:py-7 rounded-[10px] transition-all hover:scale-105 w-full md:w-auto"
           style={{
             background: 'radial-gradient(circle, #FF4400 55%, #D91300 100%)',
             boxShadow: '0 0 50px rgba(0,0,0,0.1), 0 0 15px rgba(0,0,0,0.3)'

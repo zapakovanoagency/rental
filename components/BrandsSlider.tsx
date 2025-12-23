@@ -94,7 +94,7 @@ export default function BrandsSlider() {
             viewBox="0 0 15 27" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            className="rotate-180 md:w-[15px] md:h-[27px]"
+            className="rotate-180 w-[12px] h-[22px] md:w-[15px] md:h-[27px]"
           >
             <path d="M0 2.08639L0 14.1008L0 24.9196C0 26.771 2.27674 27.6966 3.61138 26.3853L13.7782 16.3957C15.4073 14.7951 15.4073 12.1916 13.7782 10.591L9.91168 6.79188L3.61138 0.601456C2.27674 -0.690627 0 0.235043 0 2.08639Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
@@ -144,7 +144,7 @@ export default function BrandsSlider() {
             viewBox="0 0 15 27" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            className="md:w-[15px] md:h-[27px]"
+            className="w-[12px] h-[22px] md:w-[15px] md:h-[27px]"
           >
             <path d="M0 2.08639L0 14.1008L0 24.9196C0 26.771 2.27674 27.6966 3.61138 26.3853L13.7782 16.3957C15.4073 14.7951 15.4073 12.1916 13.7782 10.591L9.91168 6.79188L3.61138 0.601456C2.27674 -0.690627 0 0.235043 0 2.08639Z" fill="#070707" className="group-hover:fill-[#FF4400] transition-colors"/>
           </svg>
