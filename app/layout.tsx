@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   
   // Основні метадані
   title: {
-    default: 'Оренда авто Львів — середній, бізнес і преміум клас | RentalViv',
-    template: '%s | RentalViv — Оренда авто Львів'
+    default: 'Оренда авто Львів — середній, бізнес і преміум клас | Rentalviv',
+    template: '%s | Rentalviv — Оренда авто Львів'
   },
   description: 'Оренда авто у Львові та трансфер. Сучасні автомобілі середнього, бізнес та преміум класу. Прозорі умови та комфортний сервіс від RentalViv. ✅ Без прихованих платежів ✅ Страховка включена',
   keywords: [
@@ -54,12 +54,12 @@ export const metadata: Metadata = {
     'трансфер Львів',
     'оренда авто з водієм Львів',
     'оренда авто без застави Львів',
-    'RentalViv',
+    'Rentalviv',
     'оренда авто аеропорт Львів'
   ],
-  authors: [{ name: 'RentalViv', url: 'https://www.rentalviv.com' }],
-  creator: 'RentalViv',
-  publisher: 'RentalViv',
+  authors: [{ name: 'Rentalviv', url: 'https://www.rentalviv.com' }],
+  creator: 'Rentalviv',
+  publisher: 'Rentalviv',
   
   // Іконки
   icons: {
@@ -80,22 +80,22 @@ export const metadata: Metadata = {
     locale: 'uk_UA',
     alternateLocale: 'en_US',
     url: 'https://www.rentalviv.com',
-    title: 'Оренда авто Львів — середній, бізнес і преміум клас | RentalViv',
+    title: 'Оренда авто Львів — середній, бізнес і преміум клас | Rentalviv',
     description: 'Оренда авто у Львові та трансфер. Сучасні автомобілі середнього, бізнес та преміум класу. Прозорі умови та комфортний сервіс від RentalViv.',
-    siteName: 'RentalViv',
+    siteName: 'Rentalviv',
     images: [
       {
         url: 'https://www.rentalviv.com/images/og-image.webp',
         width: 1200,
         height: 630,
-        alt: 'RentalViv - Оренда авто у Львові. Середній, бізнес та преміум клас',
+        alt: 'Rentalviv - Оренда авто у Львові. Середній, бізнес та преміум клас',
         type: 'image/webp',
       },
       {
         url: 'https://www.rentalviv.com/images/hero-banner.webp',
         width: 1200,
         height: 630,
-        alt: 'RentalViv - Оренда автомобілів у Львові',
+        alt: 'Rentalviv - Оренда автомобілів у Львові',
       },
     ],
   },
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'Оренда авто Львів — середній, бізнес і преміум клас | RentalViv',
+    title: 'Оренда авто Львів — середній, бізнес і преміум клас | Rentalviv',
     description: 'Оренда авто у Львові та трансфер. Сучасні автомобілі, прозорі умови та комфортний сервіс від RentalViv.',
     images: ['https://www.rentalviv.com/images/og-image.webp'],
     creator: '@rentalviv',
@@ -169,7 +169,7 @@ export const metadata: Metadata = {
     'revisit-after': '7 days',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
-    'apple-mobile-web-app-title': 'RentalViv',
+    'apple-mobile-web-app-title': 'Rentalviv',
     'mobile-web-app-capable': 'yes',
   },
 };
