@@ -85,14 +85,14 @@ export const metadata: Metadata = {
     siteName: 'RentalViv',
     images: [
       {
-        url: '/images/og-image.webp',
+        url: 'https://www.rentalviv.com/images/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'RentalViv - Оренда авто у Львові. Середній, бізнес та преміум клас',
         type: 'image/webp',
       },
       {
-        url: '/images/hero-banner.webp',
+        url: 'https://www.rentalviv.com/images/hero-banner.webp',
         width: 1200,
         height: 630,
         alt: 'RentalViv - Оренда автомобілів у Львові',
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Оренда авто Львів — середній, бізнес і преміум клас | RentalViv',
     description: 'Оренда авто у Львові та трансфер. Сучасні автомобілі, прозорі умови та комфортний сервіс від RentalViv.',
-    images: ['/images/og-image.webp'],
+    images: ['https://www.rentalviv.com/images/og-image.webp'],
     creator: '@rentalviv',
     site: '@rentalviv',
   },
