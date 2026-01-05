@@ -15,9 +15,19 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['business', 'travel', 'transportation'],
     icons: [
       {
-        src: '/logo.ico',
-        sizes: '48x48',
+        src: '/favicon.ico',
+        sizes: '32x32',
         type: 'image/x-icon',
+      },
+      {
+        src: '/icon-16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
+        src: '/icon-32.png',
+        sizes: '32x32',
+        type: 'image/png',
       },
       {
         src: '/icon-72.png',
