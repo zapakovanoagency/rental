@@ -56,7 +56,7 @@ export default function Footer() {
                       <img src="/images/socials/phone.svg" alt="Phone" className="w-[18px] h-[18px]" />
                     </div>
                     <span 
-                      className="text-white text-xs xl:text-sm 2xl:text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
+                      className="text-white text-xs xl:text-sm 2xl:text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors text-nowrap"
                       style={{ fontFamily: 'var(--font-unbounded)' }}
                     >
                       +380 777 877 087
