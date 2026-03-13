@@ -73,7 +73,7 @@ export default function Footer() {
                     {t('email')}
                   </span>
                   <Link 
-                  href="mailto:rentalviv@gmail.com"
+                  href="mailto:info@rentalviv.com"
                   className="flex items-center gap-[10px] group transition-colors"
                   >
                     <div className="w-[35px] h-[35px] xl:w-[38px] 2xl:w-[40px] xl:h-[38px] 2xl:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all">
@@ -83,7 +83,7 @@ export default function Footer() {
                       className="text-white text-xs xl:text-sm 2xl:text-base font-black leading-[120%] group-hover:text-[#FF4400] transition-colors"
                       style={{ fontFamily: 'var(--font-unbounded)' }}
                     >
-                      rentalviv@gmail.com
+                      info@rentalviv.com
                     </span>
                   </Link>
                 </div>
@@ -220,7 +220,7 @@ export default function Footer() {
                 {t('email')}
               </span>
               <Link 
-                href="mailto:rentalviv@gmail.com"
+                href="mailto:info@rentalviv.com"
                 className="flex items-center gap-[10px]"
               >
                 <div className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] flex items-center justify-center bg-[#1E1D1E] p-2 rounded-[10px] hover:scale-110 hover:bg-[#FF4400] transition-all">
@@ -230,7 +230,7 @@ export default function Footer() {
                   className="text-white text-[12px] md:text-base font-black leading-[120%]"
                   style={{ fontFamily: 'var(--font-unbounded)' }}
                 >
-                  rentalviv@gmail.com
+                  info@rentalviv.com
                 </span>
               </Link>
             </div>
