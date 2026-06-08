@@ -263,7 +263,6 @@ function SortableCarCard({
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
-    cursor: 'grab',
   };
 
   return (
@@ -271,10 +270,9 @@ function SortableCarCard({
       ref={setNodeRef}
       style={style}
       {...attributes}
-      {...listeners}
       className="bg-white rounded-[10px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
     >
-      <div className="relative h-48">
+      <div className="relative h-48" {...listeners} style={{ cursor: 'grab' }}>
         <Image
           src={car.image}
           alt={car.name}
