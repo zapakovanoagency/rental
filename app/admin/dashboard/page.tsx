@@ -120,7 +120,7 @@ export default function AdminDashboard() {
       const data = await res.json();
       
       if (data.success) {
-        fetchCars();
+        setCars(prev => prev.filter(car => car._id !== id));
       }
     } catch (error) {
       console.error('Помилка видалення:', error);
